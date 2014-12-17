@@ -1,4 +1,4 @@
-phpfpm
+PHP FPM
 ======
 
 Default modules (installation php-fpm php-cli php-common packages from remi ):
