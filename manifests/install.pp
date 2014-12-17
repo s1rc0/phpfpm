@@ -57,7 +57,7 @@ class phpfpm::install (
 
   each($modules) |$module| {
     exec { "Installing $module":
-      command => "yum -y --enablerepo=remi-php$ver install $module",
+      command => "yum -y --enablerepo=remi-php$ver install php-$module",
       path => "/bin",
       require => Yumrepo[ "epel","remi","remi-php55","remi-php56" ],
     }

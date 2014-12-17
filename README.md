@@ -18,12 +18,19 @@ This module manages PHP-FPM configuration.
 class { phpfpm: }
 ```
 
-### Or set PHP version
+### Set PHP version
 
 ```puppet
 class { phpfpm: php_version => '55',} # available 54,55,56
 ```
+### Set PHP version
 
+```puppet
+class { phpfpm:
+  php_version => '55',
+  php_modules => ['mbstring','mcrypt','soap','ssh2']
+}
+```
 
 Default modules (installation php-fpm php-cli php-common packages from remi ):
 
