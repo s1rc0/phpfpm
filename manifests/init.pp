@@ -1,5 +1,5 @@
 class phpfpm (
-  $php_version        = '5.4', # available 5.4, 5.5, 5.6 from remi
+  $php_version        = '54', # available 5.4, 5.5, 5.6 from remi
   $fastcgi_type       = 'socket', #available port or socket
 
   # Modules
