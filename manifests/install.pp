@@ -1,7 +1,10 @@
 class phpfpm::install (
+  $modules                                = $phpfpm::php_modules,
   $manage_repo                            = true,
   $package_ensure                         = 'present',
-  $package_name                           = 'php-fpm',
+  $default_packages                       = ["php-fpm","php-common"],
+
+  ## repository
   $epel_mirrorlist                        = "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-7&arch=\$basearch",
   $epel_baseurl                           = 'absent',
   $epel_failovermethod                    = 'priority',
@@ -18,11 +21,6 @@ class phpfpm::install (
   $epel_debuginfo_enabled                 = '0',
   $epel_debuginfo_gpgcheck                = '0',
 ) {
-
-  #package { $package_name:
-  #  ensure  => $package_ensure,
-  #  allow_virtual => false,
-  #}
 
   ## EPEL REPO
   yumrepo { 'epel':
@@ -72,5 +70,20 @@ class phpfpm::install (
     descr          => 'Les RPM de remi pour Enterpise Linux $releasever - $basearch - PHP 5.6',
   }
   ## END REMI REPO
+
+
+  each($default_packages) |$default_package| {
+    exec { "Installing $default_package":
+      command => "yum -y --enablerepo=remi-php55 install $default_package",
+      path => "/bin",
+    }
+  }
+
+  each($modules) |$module| {
+    exec { "Installing $module":
+      command => "yum -y --enablerepo=remi-php55 install $module",
+      path => "/bin",
+    }
+  }
 
 }

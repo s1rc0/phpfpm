@@ -3,25 +3,7 @@ class phpfpm (
   $fastcgi_type       = 'socket', #available port or socket
 
   # Modules
-  $php_module_apcu         = false,
-  $php_module_opcache         = false,
-  $php_module_pear         = false,
-  $php_module_pdo         = false,
-  $php_module_         = false,
-  $php_module_         = false,
-  $php_module_         = false,
-  $php_module_         = false,
-  $php_module_         = false,
-  $php_module_         = false,
-  $php_module_         = false,
-  $php_module_         = false,
-  $php_module_         = false,
-  $php_module_         = false,
-  $php_module_         = false,
-  $php_module_         = false,
-  $php_module_         = false,
-  $php_module_         = false,
-  $php_module_         = false,
+  $php_modules        = ["php-soap","php-apc"],
 
 
 
@@ -29,6 +11,9 @@ class phpfpm (
 
 ){
 
+  ## igbinary,msgpack,zendopcache,imap,idn,interbase,intl,ioncube-loader,
+  ## jsonlint,ldap,magickwand,mapi,markdown,mssql,oci8,odbc,pclzip,geoip,
+  ## imagick,ssh2,yaml,snmp,tidy
 ## -enablerepo=remi,remi-php55
 ## yum --enablerepo=remi,remi-php55 install  php-fpm php-common
 }

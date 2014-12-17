@@ -8,21 +8,12 @@ class phpfpm::params {
       $php_package_name = 'php-fpm'
       $cli_package_name = 'php-cli'
       $common_package_name = 'php-common'
-      $apcu_package_name = 'php-pecl-apcu'
-      $opcache_package_name = 'php-opcache'
-      $pear_package_name = 'php-pear'
-      $pdo_package_name = 'php-pdo'
-      $mysqlnd_package_name = 'php-mysqlnd'
-      $mongo_package_name = 'php-pecl-mongo'
-      $pgsql_package_name = 'php-pgsql'
-      $sqlite_package_name = 'php-pecl-sqlite'
-      $memcache_package_name = 'php-pecl-memcache'
-      $memcached_package_name = 'php-pecl-memcached'
-      $gd_package_name = 'php-gd'
-      $mbstring_package_name = 'php-mbstring'
-      $mcrypt_package_name = 'php-mcrypt'
-      $xml_package_name = 'php-xml'
-      $soap_package_name = 'php-soap'
+
+
+
+
+
+
 
       # /etc/php.ini settings
   /*
