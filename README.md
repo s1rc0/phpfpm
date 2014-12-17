@@ -12,7 +12,7 @@ This module manages PHP-FPM configuration.
 * Puppet-2.7.0 or later
 * Ruby-1.9.3 or later (Support for Ruby-1.8.7 is not guaranteed. YMMV).
 
-### Install and bootstrap an NGINX instance
+### Install and bootstrap an PHP-FPM instance
 
 ```puppet
 class { phpfpm: }
