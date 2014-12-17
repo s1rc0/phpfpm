@@ -32,6 +32,21 @@ class { phpfpm:
 }
 ```
 
+### Configure php.ini
+
+```puppet
+  class { phpfpm::conf::php_ini:
+        memory_limit            => '512M',
+        max_execution_time      => '30',
+        max_input_time          => '60',
+        memory_limit            => '128M',
+        file_uploads            => "On",
+        upload_max_filesize     => "2M",
+        max_file_uploads        => 20,
+        date_timezone           => "Europe/Kiev",
+  }
+```
+
 Default modules (installation php-fpm php-cli php-common packages from remi ):
 
 - bz2
