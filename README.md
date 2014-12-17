@@ -23,7 +23,7 @@ class { phpfpm: }
 ```puppet
 class { phpfpm: php_version => '55',} # available 54,55,56
 ```
-### Set PHP version
+### Set PHP modules for install
 
 ```puppet
 class { phpfpm:
