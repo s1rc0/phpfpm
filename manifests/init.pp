@@ -10,4 +10,13 @@ class phpfpm (
 ){
   include phpfpm::install
   include phpfpm::service
+
+  file {"/etc/php.ini":
+    content => template("php54.ini.erb"),
+    owner => 'root',
+    group => 'root',
+    mode => '0644',
+    require => Class['phpfpm::install'],
+    notify => Class['phpfpm::service'],
+  }
 }
