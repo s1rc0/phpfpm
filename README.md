@@ -1,6 +1,14 @@
 PHP FPM
 ======
 
+
+## Usage
+
+```puppet
+class { phpfpm: php_version => '55',} # available 54,55,56
+```
+
+
 Default modules (installation php-fpm php-cli php-common packages from remi ):
 
 - bz2
