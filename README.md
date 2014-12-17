@@ -36,13 +36,13 @@ class { phpfpm:
 
 ```puppet
   class { phpfpm::conf::php_ini:
-        memory_limit            => '512M',
-        max_execution_time      => '30',
-        max_input_time          => '60',
-        file_uploads            => "On",
-        upload_max_filesize     => "2M",
-        max_file_uploads        => 20,
-        date_timezone           => "Europe/Kiev",
+    memory_limit            => '512M',
+    max_execution_time      => '30',
+    max_input_time          => '60',
+    file_uploads            => "On",
+    upload_max_filesize     => "2M",
+    max_file_uploads        => 20,
+    date_timezone           => "Europe/Kiev",
   }
 ```
 
