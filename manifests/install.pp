@@ -67,7 +67,7 @@ class phpfpm::install (
   }
 
   each($modules) |$module| {
-    package { php-$module:
+    package { "php-$module":
       ensure  => $package_ensure,
       allow_virtual => false,
       provider        => 'yum',
