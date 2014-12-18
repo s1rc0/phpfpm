@@ -42,7 +42,6 @@ class phpfpm::install (
       provider             => 'yum',
       install_options      => [ "--enablerepo=remi-php$ver" ],
       require              => Yumrepo[ "epel","remi","remi-php55","remi-php56" ],
-      require              => Package $default_packages,
     }
   }
 
