@@ -46,11 +46,22 @@ class phpfpm::install (
   }
   ## END REMI REPO
 
-
+  /**
   each($default_packages) |$default_package| {
     exec { "Installing $default_package":
       command => "yum -y --enablerepo=remi-php$ver install $default_package",
       path => "/bin",
+      require => Yumrepo[ "epel","remi","remi-php55","remi-php56" ],
+    }
+  }
+  */
+
+  each($default_packages) |$default_package| {
+    package { $default_package:
+      ensure  => $package_ensure,
+      allow_virtual => false,
+      provider        => 'yum',
+      install_options => [ "--enablerepo=remi-php$ver" ],
       require => Yumrepo[ "epel","remi","remi-php55","remi-php56" ],
     }
   }
