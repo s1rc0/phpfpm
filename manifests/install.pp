@@ -33,14 +33,16 @@ class phpfpm::install (
       install_options      => [ "--enablerepo=remi-php$ver" ],
       require              => Yumrepo[ "epel","remi","remi-php55","remi-php56" ],
     }
-  } -> each($modules) |$module| {
+  }
+
+  each($modules) |$module| {
     package { "php-$module":
       ensure               => $package_ensure,
       allow_virtual        => false,
       provider             => 'yum',
       install_options      => [ "--enablerepo=remi-php$ver" ],
       require              => Yumrepo[ "epel","remi","remi-php55","remi-php56" ],
-      require              => Package [""]
+      require              => Package ["$default_package"]
     }
   }
 
