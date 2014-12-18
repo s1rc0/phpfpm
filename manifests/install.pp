@@ -4,7 +4,6 @@ class phpfpm::install (
   $package_ensure         = 'installed',
   $default_packages       = ["php-fpm","php-common"],
   $ver                    = $phpfpm::php_version,
-
   ## repository
   $epel_mirrorlist        = "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-7&arch=\$basearch",
   $epel_baseurl           = 'absent',
@@ -21,40 +20,10 @@ class phpfpm::install (
   $remi56_enabled         = 0,
   $remi56_gpgcheck        = 0,
 ) {
-
-  yumrepo { 'epel':
-    mirrorlist     => $epel_mirrorlist,
-    baseurl        => $epel_baseurl,
-    enabled        => $epel_enabled,
-    gpgcheck       => $epel_gpgcheck,
-  }
-
-  yumrepo { 'remi':
-    mirrorlist     => $remi_mirrorlist,
-    enabled        => $remi_enabled,
-    gpgcheck       => $remi_gpgcheck,
-  }
-  yumrepo { 'remi-php55':
-    mirrorlist     => $remi55_mirrorlist,
-    enabled        => $remi55_enabled,
-    gpgcheck       => $remi55_gpgcheck,
-  }
-  yumrepo { 'remi-php56':
-    mirrorlist     => $remi56_mirrorlist,
-    enabled        => $remi56_enabled,
-    gpgcheck       => $remi56_gpgcheck,
-  }
-  ## END REMI REPO
-
-  /**
-  each($default_packages) |$default_package| {
-    exec { "Installing $default_package":
-      command => "yum -y --enablerepo=remi-php$ver install $default_package",
-      path => "/bin",
-      require => Yumrepo[ "epel","remi","remi-php55","remi-php56" ],
-    }
-  }
-  */
+  yumrepo { 'epel'      : mirrorlist => $epel_mirrorlist, baseurl => $epel_baseurl,enabled => $epel_enabled,gpgcheck => $epel_gpgcheck, }
+  yumrepo { 'remi'      : mirrorlist => $remi_mirrorlist, enabled => $remi_enabled,gpgcheck => $remi_gpgcheck, }
+  yumrepo { 'remi-php55': mirrorlist => $remi55_mirrorlist, enabled => $remi55_enabled, gpgcheck => $remi55_gpgcheck, }
+  yumrepo { 'remi-php56': mirrorlist => $remi56_mirrorlist, enabled => $remi56_enabled,gpgcheck => $remi56_gpgcheck, }
 
   each($default_packages) |$default_package| {
     package { $default_package:
@@ -76,13 +45,4 @@ class phpfpm::install (
     }
   }
 
-  /*
-  each($modules) |$module| {
-    exec { "Installing $module":
-      command => "yum -y --enablerepo=remi-php$ver install php-$module",
-      path => "/bin",
-      require => Yumrepo[ "epel","remi","remi-php55","remi-php56" ],
-    }
-  }
-  */
 }
