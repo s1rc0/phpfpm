@@ -9,12 +9,12 @@ class phpfpm::conf::php_ini (
 ) {
 
   file {"/etc/php.ini":
-    content => template('phpfpm/php54.ini.erb'),
-    owner => 'root',
-    group => 'root',
-    mode => '0644',
-    require => Class['phpfpm::install'],
-    notify => Class['phpfpm::service'],
+    content     => template('phpfpm/php54.ini.erb'),
+    owner       => 'root',
+    group       => 'root',
+    mode        => '0644',
+    require     => Class['phpfpm::install'],
+    notify      => Class['phpfpm::service'],
   }
 
 }
