@@ -25,6 +25,16 @@ class phpfpm::install (
   yumrepo { 'remi-php55': mirrorlist => $remi55_mirrorlist, enabled => $remi55_enabled, gpgcheck => $remi55_gpgcheck, }
   yumrepo { 'remi-php56': mirrorlist => $remi56_mirrorlist, enabled => $remi56_enabled,gpgcheck => $remi56_gpgcheck, }
 
+  each($modules) |$module| {
+    package { "php-$module":
+      ensure               => $package_ensure,
+      allow_virtual        => false,
+      provider             => 'yum',
+      install_options      => [ "--enablerepo=remi-php$ver" ],
+      require              => Yumrepo[ "epel","remi","remi-php55","remi-php56" ],
+    }
+}
+
   each($default_packages) |$default_package| {
     package { $default_package:
       ensure               => $package_ensure,
@@ -34,15 +44,4 @@ class phpfpm::install (
       require              => Yumrepo[ "epel","remi","remi-php55","remi-php56" ],
     }
   }
-
-  each($modules) |$module| {
-    package { "php-$module":
-      ensure               => $package_ensure,
-      allow_virtual        => false,
-      provider             => 'yum',
-      install_options      => [ "--enablerepo=remi-php$ver" ],
-      require              => Yumrepo[ "epel","remi","remi-php55","remi-php56" ],
-    }
-  }
-
 }
