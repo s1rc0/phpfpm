@@ -23,6 +23,27 @@ define phpfpm::conf::php_fpm (
     group       => 'root',
     mode        => '0644',
     require     => Class['phpfpm::install'],
-    notify      => Class['php-fpm::service'],
+    notify      => Class['phpfpm::service'],
   }
 }
+/**
+  $listen_backlog,
+  $listen_owner,
+  $listen_group,
+  $listen_mode,
+  $pm_max_requests,
+  $pm_status_path,
+  $ping_path,
+  $ping_response,
+  $request_terminate_timeout,
+  $request_slowlog_timeout,
+  $rlimit_files,
+  $rlimit_core,
+  $chroot,
+  $chdir,
+  $catch_workers_output,
+  $security_limit_extensions,
+  $php_admin_value_sendmail_path,
+  $php_flag_display_errors,
+  $php_admin_value_memory_limit,
+**/
