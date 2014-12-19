@@ -14,6 +14,7 @@ define phpfpm::conf::php_fpm (
   $php_value_session_save_handler     = 'files',
   $php_value_session_save_path        = '/var/lib/php/session',
   $php_value_soap_wsdl_cache_dir      = '/var/lib/php/wsdlcache',
+  $listen_mode                        = '',
 ){
   include phpfpm
 
