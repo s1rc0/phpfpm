@@ -32,6 +32,14 @@ class phpfpm::conf::php_fpm (
   $pm_max_spare_servers       = 35,
   $slowlog                    = '/var/log/php-fpm/www-slow.log',
 ){
+
+  file { '/etc/php-fpm.d':
+    ensure  => directory,
+    force   => true,
+    purge   => true,
+    recurse => true,
+  }
+
   file {"/etc/php-fpm.d/$fpm_pool_name.conf":
     content     => template("phpfpm/www.conf.erb"),
     owner       => 'root',
