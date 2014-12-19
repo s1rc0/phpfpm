@@ -1,25 +1,4 @@
-/*class phpfpm::conf::php_fpm (
-  $listen                     = '127.0.0.1:9000',
-  $listen_allowed_clients     = '127.0.0.1',
-  $user                       = 'apache',
-  $group                      = 'apache',
-  $pm                         = 'dynamic',
-  $pm_max_children            = 50,
-  $pm_start_servers           = 5,
-  $pm_min_spare_servers       = 5,
-  $pm_max_spare_servers       = 35,
-  $slowlog                    = '/var/log/php-fpm/www-slow.log',
-) {
-  file {"/etc/php-fpm.d/www.conf":
-    content     => template('phpfpm/www.conf.erb'),
-    owner       => 'root',
-    group       => 'root',
-    mode        => '0644',
-    require     => Class['phpfpm::install'],
-    notify      => Class['phpfpm::service'],
-  }
-}*/
-class phpfpm::conf::php_fpm (
+define phpfpm::conf::php_fpm (
   $fpm_pool_name              = 'www',
   $listen                     = '127.0.0.1:9000',
   $listen_allowed_clients     = '127.0.0.1',
@@ -40,7 +19,7 @@ class phpfpm::conf::php_fpm (
     recurse => true,
   }
 
-  file {"/etc/php-fpm.d/$fpm_pool_name.conf":
+  file {"/etc/php-fpm.d/$name.conf":
     content     => template("phpfpm/www.conf.erb"),
     owner       => 'root',
     group       => 'root',
