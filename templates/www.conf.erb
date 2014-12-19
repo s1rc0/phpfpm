@@ -1,11 +1,10 @@
 [<%= @name %>]
 listen = <%= @listen %>
-;listen.backlog = -1
+<% if @listen_backlog -%>listen.backlog = <%= @listen_backlog %><% end -%>
 listen.allowed_clients = <%= @listen_allowed_clients %>
-
-;listen.owner = nobody
-;listen.group = nobody
-;listen.mode = 0660
+<% if @listen_owner -%>listen.owner = <%= @listen_owner %><% end -%>
+<% if @listen_group -%>listen.group = <%= @listen_group %><% end -%>
+<% if @listen_mode -%>listen.mode = <%= @listen_mode %><% end -%>
 
 user = <%= @user %>
 group = <%= @group %>
@@ -15,34 +14,27 @@ pm.max_children = <%= @pm_max_children %>
 pm.start_servers = <%= @pm_start_servers  %>
 pm.min_spare_servers = <%= @pm_min_spare_servers %>
 pm.max_spare_servers = <%= @pm_max_spare_servers  %>
-;pm.max_requests = 500
-;pm.status_path = /status
-;ping.path = /ping
-;ping.response = pong
-;request_terminate_timeout = 0
-;request_slowlog_timeout = 0
+<% if @pm_max_requests -%>pm.max_requests = <%= @pm_max_requests %><% end -%>
+<% if @pm_status_path -%>pm.status_path = <%= @pm_status_path %><% end -%>
+<% if @ping_path -%>ping.path = <%= @ping_path %><% end -%>
+<% if @ping_response -%>ping.response = <%= @ping_response %><% end -%>
+<% if @request_terminate_timeout -%>request_terminate_timeout = <%= @request_terminate_timeout %><% end -%>
+<% if @request_slowlog_timeout -%>request_slowlog_timeout = <%= @request_slowlog_timeout %><% end -%>
 slowlog = <%= @slowlog %>
-;rlimit_files = 1024
+<% if @rlimit_files -%>rlimit_files = <%= @rlimit_files %><% end -%>
 
-;rlimit_core = 0
-;chroot =
-;chdir = /var/www
-;catch_workers_output = yes
-;security.limit_extensions = .php .php3 .php4 .php5
+<% if @rlimit_core -%>rlimit_core = <%= @rlimit_core %><% end -%>
+<% if @chroot -%>chroot = <%= @chroot %><% end -%>
+<% if @chdir -%>chdir = <%= @chdir %><% end -%>
+<% if @catch_workers_output -%>catch_workers_output = <%= @catch_workers_output %><% end -%>
+<% if @security_limit_extensions -%>security.limit_extensions = <%= @security_limit_extensions %><% end -%>
 
-;env[HOSTNAME] = $HOSTNAME
-;env[PATH] = /usr/local/bin:/usr/bin:/bin
-;env[TMP] = /tmp
-;env[TMPDIR] = /tmp
-;env[TEMP] = /tmp
+<% if @php_admin_value_sendmail_path -%>php_admin_value[sendmail_path] = <%= @php_admin_value_sendmail_path %><% end -%>
+<% if @php_flag_display_errors -%>php_flag[display_errors] = <%= @php_flag_display_errors %><% end -%>
+php_admin_value[error_log] = <%= @php_admin_value_error_log %>
+php_admin_flag[log_errors] = <%= @php_admin_flag_log_errors %>
+<% if @php_admin_value_memory_limit -%>php_admin_value[memory_limit] = <%= @php_admin_value_memory_limit %><% end -%>
 
-;php_admin_value[sendmail_path] = /usr/sbin/sendmail -t -i -f www@my.domain.com
-;php_flag[display_errors] = off
-php_admin_value[error_log] = /var/log/php-fpm/www-error.log
-php_admin_flag[log_errors] = on
-;php_admin_value[memory_limit] = 128M
-
-; Set session path to a directory owned by process user
-php_value[session.save_handler] = files
-php_value[session.save_path]    = /var/lib/php/session
-php_value[soap.wsdl_cache_dir]  = /var/lib/php/wsdlcache
+php_value[session.save_handler] = <%= @php_value_session_save_handler %>
+php_value[session.save_path]    = <%= @php_value_session_save_path %>
+php_value[soap.wsdl_cache_dir]  = <%= @php_value_soap_wsdl_cache_dir %>
