@@ -20,7 +20,7 @@
   }
 }*/
 class phpfpm::conf::php_fpm (
-  $fpm_pool_name              = '',
+  $fpm_pool_name              = 'www',
   $listen                     = '127.0.0.1:9000',
   $listen_allowed_clients     = '127.0.0.1',
   $user                       = 'apache',
