@@ -19,4 +19,11 @@ define phpfpm::conf::php_fpm (
     require     => Class['phpfpm::install'],
     notify      => Class['phpfpm::service'],
   }
+
+  file { '/etc/php-fpm.d':
+    ensure  => directory,
+    force   => true,
+    purge   => true,
+    recurse => true,
+  }
 }

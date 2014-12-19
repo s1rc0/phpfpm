@@ -44,11 +44,4 @@ class phpfpm::install (
       require              => Yumrepo[ "epel","remi","remi-php55","remi-php56" ],
     }
   }
-
-  file { '/etc/php-fpm.d':
-    ensure  => directory,
-    force   => true,
-    purge   => true,
-    recurse => true,
-  }
 }
