@@ -31,7 +31,11 @@ class { phpfpm:
   php_modules => ['mbstring','mcrypt','soap','ssh2']
 }
 ```
+### Configure php-fpm pools
 
+```puppet
+class { phpfpm::conf::php_fpm: }
+```
 ### Configure php.ini
 
 ```puppet
