@@ -20,15 +20,10 @@ class phpfpm (
   include phpfpm::install
   include phpfpm::service
 
-
-  /**
-  file {"/etc/php.ini":
-    content => template('phpfpm/php54.ini.erb'),
-    owner => 'root',
-    group => 'root',
-    mode => '0644',
-    require => Class['phpfpm::install'],
-    notify => Class['phpfpm::service'],
+  file { '/etc/php-fpm.d':
+    ensure  => directory,
+    force   => true,
+    purge   => true,
+    recurse => true,
   }
-  **/
 }

@@ -11,19 +11,12 @@ define phpfpm::conf::php_fpm (
   $slowlog                    = '/var/log/php-fpm/www-slow.log',
 ){
 
-  file {"/etc/php-fpm.d/$name.conf":
+  file { "/etc/php-fpm.d/$name.conf":
     content     => template("phpfpm/www.conf.erb"),
     owner       => 'root',
     group       => 'root',
     mode        => '0644',
     require     => Class['phpfpm::install'],
     notify      => Class['phpfpm::service'],
-  }
-
-  file { '/etc/php-fpm.d':
-    ensure  => directory,
-    force   => true,
-    purge   => true,
-    recurse => true,
   }
 }
