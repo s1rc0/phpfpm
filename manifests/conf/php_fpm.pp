@@ -10,6 +10,7 @@ define phpfpm::conf::php_fpm (
   $pm_max_spare_servers       = 35,
   $slowlog                    = '/var/log/php-fpm/www-slow.log',
 ){
+  include phpfpm
 
   file { "/etc/php-fpm.d/$name.conf":
     content     => template("phpfpm/www.conf.erb"),
