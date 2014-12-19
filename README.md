@@ -34,7 +34,9 @@ class { phpfpm:
 ### Configure php-fpm pools
 
 ```puppet
-class { phpfpm::conf::php_fpm: }
+phpfpm::conf::php_fpm { "www":
+  listen => '127.0.0.1:9000',
+}
 ```
 ### Configure php.ini
 

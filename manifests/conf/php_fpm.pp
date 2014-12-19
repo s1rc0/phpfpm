@@ -1,5 +1,4 @@
 define phpfpm::conf::php_fpm (
-  $fpm_pool_name              = 'www',
   $listen                     = '127.0.0.1:9000',
   $listen_allowed_clients     = '127.0.0.1',
   $user                       = 'apache',
@@ -11,7 +10,6 @@ define phpfpm::conf::php_fpm (
   $pm_max_spare_servers       = 35,
   $slowlog                    = '/var/log/php-fpm/www-slow.log',
 ){
-
   file { '/etc/php-fpm.d':
     ensure  => directory,
     force   => true,
