@@ -1,59 +1,41 @@
 [PHP]
 
-;;;;;;;;;;;;;;;;;;;;
-; php.ini Options  ;
-;;;;;;;;;;;;;;;;;;;;
-    ;user_ini.filename = ".user.ini"
-    ;user_ini.filename =
-    ;user_ini.cache_ttl = 300
-
-;;;;;;;;;;;;;;;;;;;;
-; Language Options ;
-;;;;;;;;;;;;;;;;;;;;
     engine = On
     short_open_tag = Off
     asp_tags = Off
     precision = 14
     output_buffering = 4096
-    ;output_handler =
+    <% if @output_handler -%>output_handler =<% end -%>
     zlib.output_compression = Off
-    ;zlib.output_compression_level = -1
-    ;zlib.output_handler =
+    <% if @zlib_output_compression_level -%>zlib.output_compression_level = -1<% end -%>
+    <% if @zlib_output_handler -%>zlib.output_handler =<% end -%>
     implicit_flush = Off
     unserialize_callback_func =
     serialize_precision = 17
-    ;open_basedir =
+    <% if @open_basedir -%>open_basedir =<% end -%>
     disable_functions =
     disable_classes =
-    ;highlight.string  = #DD0000
-    ;highlight.comment = #FF9900
-    ;highlight.keyword = #007700
-    ;highlight.default = #0000BB
-    ;highlight.html    = #000000
-    ;ignore_user_abort = On
-    ;realpath_cache_size = 16k
-    ;realpath_cache_ttl = 120
+    <% if @highlight_string -%>highlight.string  = #DD0000<% end -%>
+    <% if @highlight_comment -%>highlight.comment = #FF9900<% end -%>
+    <% if @highlight_keyword -%>highlight.keyword = #007700<% end -%>
+    <% if @highlight_default -%>highlight.default = #0000BB<% end -%>
+    <% if @highlight_html -%>highlight.html    = #000000<% end -%>
+    <% if @ignore_user_abort -%>ignore_user_abort = On<% end -%>
+    <% if @realpath_cache_size -%>realpath_cache_size = 16k<% end -%>
+    <% if @realpath_cache_ttl -%>realpath_cache_ttl = 120<% end -%>
     zend.enable_gc = On
-    ;zend.multibyte = Off
-    ;zend.script_encoding =
+    <% if @zend_multibyte -%>zend.multibyte = Off<% end -%>
+    <% if @zend_script_encoding -%>zend.script_encoding =<% end -%>
 
-;;;;;;;;;;;;;;;;;
-; Miscellaneous ;
-;;;;;;;;;;;;;;;;;
     expose_php = On
 
-;;;;;;;;;;;;;;;;;;;
-; Resource Limits ;
-;;;;;;;;;;;;;;;;;;;
     max_execution_time = 30
     max_input_time = 60
-    ;max_input_nesting_level = 64
-    ;max_input_vars = 1000
+    <% if @max_input_nesting_level -%>max_input_nesting_level = 64<% end -%>
+    <% if @max_input_vars -%>max_input_vars = 1000<% end -%>
     memory_limit = <%= @memory_limit %>
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Error handling and logging ;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
     error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT
     display_errors = Off
     display_startup_errors = Off
@@ -62,135 +44,119 @@
     ignore_repeated_errors = Off
     ignore_repeated_source = Off
     report_memleaks = On
-    ;report_zend_debug = 0
+    <% if @report_zend_debug -%>report_zend_debug = 0<% end -%>
     track_errors = Off
-    ;xmlrpc_errors = 0
-    ;xmlrpc_error_number = 0
+    <% if @xmlrpc_errors -%>xmlrpc_errors = 0<% end -%>
+    <% if @xmlrpc_error_number -%>xmlrpc_error_number = 0<% end -%>
     html_errors = On
-    ;docref_root = "/phpmanual/"
-    ;docref_ext = .html
-    ;error_prepend_string = "<span style='color: #ff0000'>"
-    ;error_append_string = "</span>"
-    ;error_log = php_errors.log
-    ;error_log = syslog
+    <% if @docref_root -%>docref_root = "/phpmanual/"<% end -%>
+    <% if @docref_ext -%>docref_ext = .html<% end -%>
+    <% if @error_prepend_string -%>error_prepend_string = "<span style='color: #ff0000'>"<% end -%>
+    <% if @error_append_string -%>error_append_string = "</span>"<% end -%>
+    <% if @error_log -%>error_log = php_errors.log<% end -%>
+    <% if @ -%>error_log = syslog<% end -%>
 
-;;;;;;;;;;;;;;;;;
-; Data Handling ;
-;;;;;;;;;;;;;;;;;
-    ;arg_separator.output = "&amp;"
-    ;arg_separator.input = ";&"
+    <% if @arg_separator_output -%>arg_separator.output = "&amp<% if @ -%>"<% end -%>
+    <% if @arg_separator_input -%>arg_separator.input = "<% if @ -%>&"<% end -%>
     variables_order = "GPCS"
     request_order = "GP"
     register_argc_argv = Off
     auto_globals_jit = On
-    ;enable_post_data_reading = Off
+    <% if @enable_post_data_reading -%>enable_post_data_reading = Off<% end -%>
     post_max_size = 8M
     auto_prepend_file =
     auto_append_file =
     default_mimetype = "text/html"
-    ;default_charset = "UTF-8"
-    ;always_populate_raw_post_data = On
+    <% if @default_charset -%>default_charset = "UTF-8"<% end -%>
+    <% if @always_populate_raw_post_data -%>always_populate_raw_post_data = On<% end -%>
 
-;;;;;;;;;;;;;;;;;;;;;;;;;
-; Paths and Directories ;
-;;;;;;;;;;;;;;;;;;;;;;;;;
     doc_root =
     user_dir =
     enable_dl = Off
-    ;cgi.force_redirect = 1
-    ;cgi.nph = 1
-    ;cgi.redirect_status_env =
+    <% if @cgi_force_redirect -%>cgi.force_redirect = 1<% end -%>
+    <% if @cgi_nph -%>cgi.nph = 1<% end -%>
+    <% if @cgi_redirect_status_env -%>cgi.redirect_status_env =<% end -%>
     cgi.fix_pathinfo=0
-    ;fastcgi.impersonate = 1
-    ;fastcgi.logging = 0
-    ;cgi.rfc2616_headers = 0
+    <% if @fastcgi_impersonate -%>fastcgi.impersonate = 1<% end -%>
+    <% if @fastcgi_logging -%>fastcgi.logging = 0<% end -%>
+    <% if @cgi_rfc2616_headers -%>cgi.rfc2616_headers = 0<% end -%>
 
-;;;;;;;;;;;;;;;;
-; File Uploads ;
-;;;;;;;;;;;;;;;;
     file_uploads = On
-    ;upload_tmp_dir =
+    <% if @upload_tmp_dir -%>upload_tmp_dir =<% end -%>
     upload_max_filesize = 2M
     max_file_uploads = 20
 
-;;;;;;;;;;;;;;;;;;
-; Fopen wrappers ;
-;;;;;;;;;;;;;;;;;;
     allow_url_fopen = On
     allow_url_include = Off
-    ;user_agent="PHP"
+    <% if @user_agent -%>user_agent="PHP"<% end -%>
     default_socket_timeout = 60
-    ;auto_detect_line_endings = Off
+    <% if @auto_detect_line_endings -%>auto_detect_line_endings = Off<% end -%>
 
-
-;;;;;;;;;;;;;;;;;;;
-; Module Settings ;
-;;;;;;;;;;;;;;;;;;;
 [CLI Server]
     cli_server.color = On
 [Date]
     date.timezone = Europe/Kiev
-    ;date.default_latitude = 31.7667
-    ;date.default_longitude = 35.2333
-    ;date.sunrise_zenith = 90.583333
-    ;date.sunset_zenith = 90.583333
+    <% if @date_default_latitude -%>date.default_latitude = 31.7667<% end -%>
+    <% if @date_default_longitude -%>date.default_longitude = 35.2333<% end -%>
+    <% if @date_sunrise_zenith -%>date.sunrise_zenith = 90.583333<% end -%>
+    <% if @date_sunset_zenith -%>date.sunset_zenith = 90.583333<% end -%>
 [filter]
-    ;filter.default = unsafe_raw
-    ;filter.default_flags =
+    <% if @ -%>filter.default = unsafe_raw<% end -%>
+    <% if @ -%>filter.default_flags =<% end -%>
 [iconv]
-    ;iconv.input_encoding = ISO-8859-1
-    ;iconv.internal_encoding = ISO-8859-1
-    ;iconv.output_encoding = ISO-8859-1
+    <% if @ -%>iconv.input_encoding = ISO-8859-1<% end -%>
+    <% if @ -%>iconv.internal_encoding = ISO-8859-1<% end -%>
+    <% if @ -%>iconv.output_encoding = ISO-8859-1<% end -%>
 [intl]
-    ;intl.default_locale =
-    ;intl.error_level = E_WARNING
+    <% if @ -%>intl.default_locale =<% end -%>
+    <% if @ -%>intl.error_level = E_WARNING<% end -%>
 [sqlite]
-    ;sqlite.assoc_case = 0
+    <% if @ -%>sqlite.assoc_case = 0<% end -%>
 [sqlite3]
-    ;sqlite3.extension_dir =
+    <% if @ -%>sqlite3.extension_dir =<% end -%>
 [Pcre]
-    ;pcre.backtrack_limit=100000
-    ;pcre.recursion_limit=100000
+    <% if @ -%>pcre.backtrack_limit=100000<% end -%>
+    <% if @ -%>pcre.recursion_limit=100000<% end -%>
 [Pdo]
-    ;pdo_odbc.connection_pooling=strict
-    ;pdo_odbc.db2_instance_name
+    <% if @ -%>pdo_odbc.connection_pooling=strict<% end -%>
+    <% if @ -%>pdo_odbc.db2_instance_name<% end -%>
 [Pdo_mysql]
     pdo_mysql.cache_size = 2000
     pdo_mysql.default_socket=
 [Phar]
-    ;phar.readonly = On
-    ;phar.require_hash = On
-    ;phar.cache_list =
+    <% if @ -%>phar.readonly = On<% end -%>
+    <% if @ -%>phar.require_hash = On<% end -%>
+    <% if @ -%>phar.cache_list =<% end -%>
 [mail function]
     SMTP = localhost
     smtp_port = 25
-    ;sendmail_from = me@example.com
+    <% if @ -%>sendmail_from = me@example.com<% end -%>
     sendmail_path = /usr/sbin/sendmail -t -i
-    ;mail.force_extra_parameters =
+    <% if @ -%>mail.force_extra_parameters =<% end -%>
     mail.add_x_header = On
-    ;mail.log = syslog
+    <% if @ -%>mail.log = syslog<% end -%>
 [SQL]
     sql.safe_mode = Off
 [ODBC]
-    ;odbc.default_db    =  Not yet implemented
-    ;odbc.default_user  =  Not yet implemented
-    ;odbc.default_pw    =  Not yet implemented
-    ;odbc.default_cursortype
+    <% if @ -%>odbc.default_db    =  Not yet implemented<% end -%>
+    <% if @ -%>odbc.default_user  =  Not yet implemented<% end -%>
+    <% if @ -%>odbc.default_pw    =  Not yet implemented<% end -%>
+    <% if @ -%>odbc.default_cursortype<% end -%>
     odbc.allow_persistent = On
     odbc.check_persistent = On
     odbc.max_persistent = -1
     odbc.max_links = -1
     odbc.defaultlrl = 4096
     odbc.defaultbinmode = 1
-    ;birdstep.max_links = -1
+    <% if @ -%>birdstep.max_links = -1<% end -%>
 [Interbase]
     ibase.allow_persistent = 1
     ibase.max_persistent = -1
     ibase.max_links = -1
-    ;ibase.default_db =
-    ;ibase.default_user =
-    ;ibase.default_password =
-    ;ibase.default_charset =
+    <% if @ -%>ibase.default_db =<% end -%>
+    <% if @ -%>ibase.default_user =<% end -%>
+    <% if @ -%>ibase.default_password =<% end -%>
+    <% if @ -%>ibase.default_charset =<% end -%>
     ibase.timestampformat = "%Y-%m-%d %H:%M:%S"
     ibase.dateformat = "%Y-%m-%d"
     ibase.timeformat = "%H:%M:%S"
@@ -209,7 +175,7 @@
     mysql.trace_mode = Off
 [MySQLi]
     mysqli.max_persistent = -1
-    ;mysqli.allow_local_infile = On
+    <% if @ -%>mysqli.allow_local_infile = On<% end -%>
     mysqli.allow_persistent = On
     mysqli.max_links = -1
     mysqli.cache_size = 2000
@@ -222,18 +188,18 @@
 [mysqlnd]
     mysqlnd.collect_statistics = On
     mysqlnd.collect_memory_statistics = Off
-    ;mysqlnd.net_cmd_buffer_size = 2048
-    ;mysqlnd.net_read_buffer_size = 32768
+    <% if @ -%>mysqlnd.net_cmd_buffer_size = 2048<% end -%>
+    <% if @ -%>mysqlnd.net_read_buffer_size = 32768<% end -%>
 [OCI8]
-    ;oci8.privileged_connect = Off
-    ;oci8.max_persistent = -1
-    ;oci8.persistent_timeout = -1
-    ;oci8.ping_interval = 60
-    ;oci8.connection_class =
-    ;oci8.events = Off
-    ;oci8.statement_cache_size = 20
-    ;oci8.default_prefetch = 100
-    ;oci8.old_oci_close_semantics = Off
+    <% if @ -%>oci8.privileged_connect = Off<% end -%>
+    <% if @ -%>oci8.max_persistent = -1<% end -%>
+    <% if @ -%>oci8.persistent_timeout = -1<% end -%>
+    <% if @ -%>oci8.ping_interval = 60<% end -%>
+    <% if @ -%>oci8.connection_class =<% end -%>
+    <% if @ -%>oci8.events = Off<% end -%>
+    <% if @ -%>oci8.statement_cache_size = 20<% end -%>
+    <% if @ -%>oci8.default_prefetch = 100<% end -%>
+    <% if @ -%>oci8.old_oci_close_semantics = Off<% end -%>
 [PostgreSQL]
     pgsql.allow_persistent = On
     pgsql.auto_reset_persistent = Off
@@ -247,20 +213,20 @@
     sybct.max_links = -1
     sybct.min_server_severity = 10
     sybct.min_client_severity = 10
-    ;sybct.timeout=
-    ;sybct.packet_size
-    ;sybct.login_timeout=
-    ;sybct.hostname=
-    ;sybct.deadlock_retry_count=
+    <% if @ -%>sybct.timeout=<% end -%>
+    <% if @ -%>sybct.packet_size<% end -%>
+    <% if @ -%>sybct.login_timeout=<% end -%>
+    <% if @ -%>sybct.hostname=<% end -%>
+    <% if @ -%>sybct.deadlock_retry_count=<% end -%>
 [bcmath]
     bcmath.scale = 0
 [browscap]
-    ;browscap = extra/browscap.ini
+    <% if @ -%>browscap = extra/browscap.ini<% end -%>
 [Session]
     session.save_handler = files
-    ;session.save_path = "/tmp"
+    <% if @ -%>session.save_path = "/tmp"<% end -%>
     session.use_cookies = 1
-    ;session.cookie_secure =
+    <% if @ -%>session.cookie_secure =<% end -%>
     session.use_only_cookies = 1
     session.name = PHPSESSID
     session.auto_start = 0
@@ -273,20 +239,20 @@
     session.gc_divisor = 1000
     session.gc_maxlifetime = 1440
     session.referer_check =
-    ;session.entropy_length = 32
-    ;session.entropy_file = /dev/urandom
+    <% if @ -%>session.entropy_length = 32<% end -%>
+    <% if @ -%>session.entropy_file = /dev/urandom<% end -%>
     session.cache_limiter = nocache
     session.cache_expire = 180
     session.use_trans_sid = 0
     session.hash_function = 0
     session.hash_bits_per_character = 5
     url_rewriter.tags = "a=href,area=href,frame=src,input=src,form=fakeentry"
-    ;session.upload_progress.enabled = On
-    ;session.upload_progress.cleanup = On
-    ;session.upload_progress.prefix = "upload_progress_"
-    ;session.upload_progress.name = "PHP_SESSION_UPLOAD_PROGRESS"
-    ;session.upload_progress.freq =  "1%"
-    ;session.upload_progress.min_freq = "1"
+    <% if @ -%>session.upload_progress.enabled = On<% end -%>
+    <% if @ -%>session.upload_progress.cleanup = On<% end -%>
+    <% if @ -%>session.upload_progress.prefix = "upload_progress_"<% end -%>
+    <% if @ -%>session.upload_progress.name = "PHP_SESSION_UPLOAD_PROGRESS"<% end -%>
+    <% if @ -%>session.upload_progress.freq =  "1%"<% end -%>
+    <% if @ -%>session.upload_progress.min_freq = "1"<% end -%>
 [MSSQL]
     mssql.allow_persistent = On
     mssql.max_persistent = -1
@@ -294,43 +260,43 @@
     mssql.min_error_severity = 10
     mssql.min_message_severity = 10
     mssql.compatability_mode = Off
-    ;mssql.connect_timeout = 5
-    ;mssql.timeout = 60
-    ;mssql.textlimit = 4096
-    ;mssql.textsize = 4096
-    ;mssql.batchsize = 0
-    ;mssql.datetimeconvert = On
+    <% if @ -%>mssql.connect_timeout = 5<% end -%>
+    <% if @ -%>mssql.timeout = 60<% end -%>
+    <% if @ -%>mssql.textlimit = 4096<% end -%>
+    <% if @ -%>mssql.textsize = 4096<% end -%>
+    <% if @ -%>mssql.batchsize = 0<% end -%>
+    <% if @ -%>mssql.datetimeconvert = On<% end -%>
     mssql.secure_connection = Off
-    ;mssql.max_procs = -1
-    ;mssql.charset = "ISO-8859-1"
+    <% if @ -%>mssql.max_procs = -1<% end -%>
+    <% if @ -%>mssql.charset = "ISO-8859-1"<% end -%>
 [Assertion]
-    ;assert.active = On
-    ;assert.warning = On
-    ;assert.bail = Off
-    ;assert.callback = 0
-    ;assert.quiet_eval = 0
+    <% if @ -%>assert.active = On<% end -%>
+    <% if @ -%>assert.warning = On<% end -%>
+    <% if @ -%>assert.bail = Off<% end -%>
+    <% if @ -%>assert.callback = 0<% end -%>
+    <% if @ -%>assert.quiet_eval = 0<% end -%>
 [mbstring]
-    ;mbstring.language = Japanese
-    ;mbstring.internal_encoding = EUC-JP
-    ;mbstring.http_input = auto
-    ;mbstring.http_output = SJIS
-    ;mbstring.encoding_translation = Off
-    ;mbstring.detect_order = auto
-    ;mbstring.substitute_character = none;
-    ;mbstring.func_overload = 0
-    ;mbstring.strict_detection = Off
-    ;mbstring.http_output_conv_mimetype=
+    <% if @ -%>mbstring.language = Japanese<% end -%>
+    <% if @ -%>mbstring.internal_encoding = EUC-JP<% end -%>
+    <% if @ -%>mbstring.http_input = auto<% end -%>
+    <% if @ -%>mbstring.http_output = SJIS<% end -%>
+    <% if @ -%>mbstring.encoding_translation = Off<% end -%>
+    <% if @ -%>mbstring.detect_order = auto<% end -%>
+    <% if @ -%>mbstring.substitute_character = none<% if @ -%><% end -%>
+    <% if @ -%>mbstring.func_overload = 0<% end -%>
+    <% if @ -%>mbstring.strict_detection = Off<% end -%>
+    <% if @ -%>mbstring.http_output_conv_mimetype=<% end -%>
 [gd]
-    ;gd.jpeg_ignore_warning = 0
+    <% if @ -%>gd.jpeg_ignore_warning = 0<% end -%>
 [exif]
-    ;exif.encode_unicode = ISO-8859-15
-    ;exif.decode_unicode_motorola = UCS-2BE
-    ;exif.decode_unicode_intel    = UCS-2LE
-    ;exif.encode_jis =
-    ;exif.decode_jis_motorola = JIS
-    ;exif.decode_jis_intel    = JIS
+    <% if @ -%>exif.encode_unicode = ISO-8859-15<% end -%>
+    <% if @ -%>exif.decode_unicode_motorola = UCS-2BE<% end -%>
+    <% if @ -%>exif.decode_unicode_intel    = UCS-2LE<% end -%>
+    <% if @ -%>exif.encode_jis =<% end -%>
+    <% if @ -%>exif.decode_jis_motorola = JIS<% end -%>
+    <% if @ -%>exif.decode_jis_intel    = JIS<% end -%>
 [Tidy]
-    ;tidy.default_config = /usr/local/lib/php/default.tcfg
+    <% if @ -%>tidy.default_config = /usr/local/lib/php/default.tcfg<% end -%>
     tidy.clean_output = Off
 [soap]
     soap.wsdl_cache_enabled=1
@@ -338,13 +304,13 @@
     soap.wsdl_cache_ttl=86400
     soap.wsdl_cache_limit = 5
 [sysvshm]
-    ;sysvshm.init_mem = 10000
+    <% if @ -%>sysvshm.init_mem = 10000<% end -%>
 [ldap]
     ldap.max_links = -1
 [mcrypt]
-    ;mcrypt.algorithms_dir=
-    ;mcrypt.modes_dir=
+    <% if @ -%>mcrypt.algorithms_dir=<% end -%>
+    <% if @ -%>mcrypt.modes_dir=<% end -%>
 [dba]
-    ;dba.default_handler=
+    <% if @ -%>dba.default_handler=<% end -%>
 [curl]
-    ;curl.cainfo =
+    <% if @ -%>curl.cainfo =<% end -%>
