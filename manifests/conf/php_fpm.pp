@@ -18,6 +18,6 @@ define phpfpm::conf::php_fpm (
     group       => 'root',
     mode        => '0644',
     require     => Class['phpfpm::install'],
-    notify      => Class['phpfpm::service'],
+    notify      => Service['phpfpm::service'],
   }
 }
