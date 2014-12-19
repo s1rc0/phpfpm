@@ -18,7 +18,9 @@ class phpfpm (
 
 ){
   include phpfpm::install
+  include phpfpm::conf::phpfpm_pool
   include phpfpm::service
+
 
   /**
   file {"/etc/php.ini":
