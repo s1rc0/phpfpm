@@ -102,8 +102,8 @@
     <% if @filter_default -%>filter.default = unsafe_raw<% end -%>
     <% if @filter_default_flags -%>filter.default_flags =<% end -%>
 [iconv]
-    <% if @iconv_iconv.input_encoding -%>iconv.input_encoding = ISO-8859-1<% end -%>
-    <% if @iconv_iconv.internal_encoding -%>iconv.internal_encoding = ISO-8859-1<% end -%>
+    <% if @iconv_iconv_input_encoding -%>iconv.input_encoding = ISO-8859-1<% end -%>
+    <% if @iconv_iconv_internal_encoding -%>iconv.internal_encoding = ISO-8859-1<% end -%>
     <% if @iconv_output_encoding -%>iconv.output_encoding = ISO-8859-1<% end -%>
 [intl]
     <% if @intl_default_locale -%>intl.default_locale =<% end -%>
@@ -194,7 +194,7 @@
     <% if @oci8_persistent_timeout -%>oci8.persistent_timeout = -1<% end -%>
     <% if @oci8_ping_interval -%>oci8.ping_interval = 60<% end -%>
     <% if @oci8_connection_class -%>oci8.connection_class =<% end -%>
-    <% if @oci8_oci8.events -%>oci8.events = Off<% end -%>
+    <% if @oci8_oci8_events -%>oci8.events = Off<% end -%>
     <% if @oci8_statement_cache_size -%>oci8.statement_cache_size = 20<% end -%>
     <% if @oci8_default_prefetch -%>oci8.default_prefetch = 100<% end -%>
     <% if @oci8_old_oci_close_semantics -%>oci8.old_oci_close_semantics = Off<% end -%>
