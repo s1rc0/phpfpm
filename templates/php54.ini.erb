@@ -66,48 +66,48 @@ default_mimetype = "text/html"
 <% if @default_charset -%>default_charset = "UTF-8"<% end -%>
 <% if @always_populate_raw_post_data -%>always_populate_raw_post_data = On<% end -%>
 
-    doc_root =
-    user_dir =
-    enable_dl = Off
-    <% if @cgi_force_redirect -%>cgi.force_redirect = 1<% end -%>
-    <% if @cgi_nph -%>cgi.nph = 1<% end -%>
-    <% if @cgi_redirect_status_env -%>cgi.redirect_status_env =<% end -%>
-    cgi.fix_pathinfo=0
-    <% if @fastcgi_impersonate -%>fastcgi.impersonate = 1<% end -%>
-    <% if @fastcgi_logging -%>fastcgi.logging = 0<% end -%>
-    <% if @cgi_rfc2616_headers -%>cgi.rfc2616_headers = 0<% end -%>
+doc_root =
+user_dir =
+enable_dl = Off
+<% if @cgi_force_redirect -%>cgi.force_redirect = 1<% end -%>
+<% if @cgi_nph -%>cgi.nph = 1<% end -%>
+<% if @cgi_redirect_status_env -%>cgi.redirect_status_env =<% end -%>
+cgi.fix_pathinfo=0
+<% if @fastcgi_impersonate -%>fastcgi.impersonate = 1<% end -%>
+<% if @fastcgi_logging -%>fastcgi.logging = 0<% end -%>
+<% if @cgi_rfc2616_headers -%>cgi.rfc2616_headers = 0<% end -%>
 
-    file_uploads = On
-    <% if @upload_tmp_dir -%>upload_tmp_dir =<% end -%>
-    upload_max_filesize = 2M
-    max_file_uploads = 20
+file_uploads = On
+<% if @upload_tmp_dir -%>upload_tmp_dir =<% end -%>
+upload_max_filesize = 2M
+max_file_uploads = 20
 
-    allow_url_fopen = On
-    allow_url_include = Off
-    <% if @user_agent -%>user_agent="PHP"<% end -%>
-    default_socket_timeout = 60
-    <% if @auto_detect_line_endings -%>auto_detect_line_endings = Off<% end -%>
+allow_url_fopen = On
+allow_url_include = Off
+<% if @user_agent -%>user_agent="PHP"<% end -%>
+default_socket_timeout = 60
+<% if @auto_detect_line_endings -%>auto_detect_line_endings = Off<% end -%>
 
 [CLI Server]
-    cli_server.color = On
+cli_server.color = On
 [Date]
-    date.timezone = Europe/Kiev
-    <% if @date_default_latitude -%>date.default_latitude = 31.7667<% end -%>
-    <% if @date_default_longitude -%>date.default_longitude = 35.2333<% end -%>
-    <% if @date_sunrise_zenith -%>date.sunrise_zenith = 90.583333<% end -%>
-    <% if @date_sunset_zenith -%>date.sunset_zenith = 90.583333<% end -%>
+date.timezone = Europe/Kiev
+<% if @date_default_latitude -%>date.default_latitude = 31.7667<% end -%>
+<% if @date_default_longitude -%>date.default_longitude = 35.2333<% end -%>
+<% if @date_sunrise_zenith -%>date.sunrise_zenith = 90.583333<% end -%>
+<% if @date_sunset_zenith -%>date.sunset_zenith = 90.583333<% end -%>
 [filter]
-    <% if @filter_default -%>filter.default = unsafe_raw<% end -%>
-    <% if @filter_default_flags -%>filter.default_flags =<% end -%>
+<% if @filter_default -%>filter.default = unsafe_raw<% end -%>
+<% if @filter_default_flags -%>filter.default_flags =<% end -%>
 [iconv]
-    <% if @iconv_iconv_input_encoding -%>iconv.input_encoding = ISO-8859-1<% end -%>
-    <% if @iconv_iconv_internal_encoding -%>iconv.internal_encoding = ISO-8859-1<% end -%>
-    <% if @iconv_output_encoding -%>iconv.output_encoding = ISO-8859-1<% end -%>
+<% if @iconv_iconv_input_encoding -%>iconv.input_encoding = ISO-8859-1<% end -%>
+<% if @iconv_iconv_internal_encoding -%>iconv.internal_encoding = ISO-8859-1<% end -%>
+<% if @iconv_output_encoding -%>iconv.output_encoding = ISO-8859-1<% end -%>
 [intl]
-    <% if @intl_default_locale -%>intl.default_locale =<% end -%>
-    <% if @intl_error_level -%>intl.error_level = E_WARNING<% end -%>
+<% if @intl_default_locale -%>intl.default_locale =<% end -%>
+<% if @intl_error_level -%>intl.error_level = E_WARNING<% end -%>
 [sqlite]
-    <% if @sqlite_assoc_case -%>sqlite.assoc_case = 0<% end -%>
+<% if @sqlite_assoc_case -%>sqlite.assoc_case = 0<% end -%>
 [sqlite3]
     <% if @sqlite3_extension_dir -%>sqlite3.extension_dir =<% end -%>
 [Pcre]
@@ -250,63 +250,63 @@ default_mimetype = "text/html"
     <% if @session_upload_progress_freq -%>session.upload_progress.freq =  "1%"<% end -%>
     <% if @session_upload_progress_min_freq -%>session.upload_progress.min_freq = "1"<% end -%>
 [MSSQL]
-    mssql.allow_persistent = On
-    mssql.max_persistent = -1
-    mssql.max_links = -1
-    mssql.min_error_severity = 10
-    mssql.min_message_severity = 10
-    mssql.compatability_mode = Off
-    <% if @mssql_connect_timeout -%>mssql.connect_timeout = 5<% end -%>
-    <% if @mssql_timeout -%>mssql.timeout = 60<% end -%>
-    <% if @mssql_textlimit -%>mssql.textlimit = 4096<% end -%>
-    <% if @mssql_textsize -%>mssql.textsize = 4096<% end -%>
-    <% if @mssql_batchsize -%>mssql.batchsize = 0<% end -%>
-    <% if @mssql_datetimeconvert -%>mssql.datetimeconvert = On<% end -%>
-    mssql.secure_connection = Off
-    <% if @mssql_max_procs -%>mssql.max_procs = -1<% end -%>
-    <% if @mssql_charset -%>mssql.charset = "ISO-8859-1"<% end -%>
+mssql.allow_persistent = On
+mssql.max_persistent = -1
+mssql.max_links = -1
+mssql.min_error_severity = 10
+mssql.min_message_severity = 10
+mssql.compatability_mode = Off
+<% if @mssql_connect_timeout -%>mssql.connect_timeout = 5<% end -%>
+<% if @mssql_timeout -%>mssql.timeout = 60<% end -%>
+<% if @mssql_textlimit -%>mssql.textlimit = 4096<% end -%>
+<% if @mssql_textsize -%>mssql.textsize = 4096<% end -%>
+<% if @mssql_batchsize -%>mssql.batchsize = 0<% end -%>
+<% if @mssql_datetimeconvert -%>mssql.datetimeconvert = On<% end -%>
+mssql.secure_connection = Off
+<% if @mssql_max_procs -%>mssql.max_procs = -1<% end -%>
+<% if @mssql_charset -%>mssql.charset = "ISO-8859-1"<% end -%>
 [Assertion]
-    <% if @assert_active -%>assert.active = On<% end -%>
-    <% if @assert_warning -%>assert.warning = On<% end -%>
-    <% if @assert_bail -%>assert.bail = Off<% end -%>
-    <% if @assert_callback -%>assert.callback = 0<% end -%>
-    <% if @assert_quiet_eval -%>assert.quiet_eval = 0<% end -%>
+<% if @assert_active -%>assert.active = On<% end -%>
+<% if @assert_warning -%>assert.warning = On<% end -%>
+<% if @assert_bail -%>assert.bail = Off<% end -%>
+<% if @assert_callback -%>assert.callback = 0<% end -%>
+<% if @assert_quiet_eval -%>assert.quiet_eval = 0<% end -%>
 [mbstring]
-    <% if @mbstring_language -%>mbstring.language = Japanese<% end -%>
-    <% if @mbstring_internal_encoding -%>mbstring.internal_encoding = EUC-JP<% end -%>
-    <% if @mbstring_http_input -%>mbstring.http_input = auto<% end -%>
-    <% if @mbstring_http_output -%>mbstring.http_output = SJIS<% end -%>
-    <% if @mbstring_encoding_translation -%>mbstring.encoding_translation = Off<% end -%>
-    <% if @mbstring_detect_order -%>mbstring.detect_order = auto<% end -%>
-    <% if @mbstring_substitute_character -%>mbstring.substitute_character = none<% end -%>
-    <% if @mbstring_func_overload -%>mbstring.func_overload = 0<% end -%>
-    <% if @mbstring_strict_detection -%>mbstring.strict_detection = Off<% end -%>
-    <% if @mbstring_http_output_conv_mimetype -%>mbstring.http_output_conv_mimetype=<% end -%>
+<% if @mbstring_language -%>mbstring.language = Japanese<% end -%>
+<% if @mbstring_internal_encoding -%>mbstring.internal_encoding = EUC-JP<% end -%>
+<% if @mbstring_http_input -%>mbstring.http_input = auto<% end -%>
+<% if @mbstring_http_output -%>mbstring.http_output = SJIS<% end -%>
+<% if @mbstring_encoding_translation -%>mbstring.encoding_translation = Off<% end -%>
+<% if @mbstring_detect_order -%>mbstring.detect_order = auto<% end -%>
+<% if @mbstring_substitute_character -%>mbstring.substitute_character = none<% end -%>
+<% if @mbstring_func_overload -%>mbstring.func_overload = 0<% end -%>
+<% if @mbstring_strict_detection -%>mbstring.strict_detection = Off<% end -%>
+<% if @mbstring_http_output_conv_mimetype -%>mbstring.http_output_conv_mimetype=<% end -%>
 [gd]
-    <% if @gd_jpeg_ignore_warning -%>gd.jpeg_ignore_warning = 0<% end -%>
+<% if @gd_jpeg_ignore_warning -%>gd.jpeg_ignore_warning = 0<% end -%>
 [exif]
-    <% if @exif_encode_unicode -%>exif.encode_unicode = ISO-8859-15<% end -%>
-    <% if @exif_decode_unicode_motorola -%>exif.decode_unicode_motorola = UCS-2BE<% end -%>
-    <% if @exif_decode_unicode_intel -%>exif.decode_unicode_intel    = UCS-2LE<% end -%>
-    <% if @exif_encode_jis -%>exif.encode_jis =<% end -%>
-    <% if @exif_decode_jis_motorola -%>exif.decode_jis_motorola = JIS<% end -%>
-    <% if @exif_decode_jis_intel -%>exif.decode_jis_intel    = JIS<% end -%>
+<% if @exif_encode_unicode -%>exif.encode_unicode = ISO-8859-15<% end -%>
+<% if @exif_decode_unicode_motorola -%>exif.decode_unicode_motorola = UCS-2BE<% end -%>
+<% if @exif_decode_unicode_intel -%>exif.decode_unicode_intel    = UCS-2LE<% end -%>
+<% if @exif_encode_jis -%>exif.encode_jis =<% end -%>
+<% if @exif_decode_jis_motorola -%>exif.decode_jis_motorola = JIS<% end -%>
+<% if @exif_decode_jis_intel -%>exif.decode_jis_intel    = JIS<% end -%>
 [Tidy]
-    <% if @tidy_default_config -%>tidy.default_config = /usr/local/lib/php/default.tcfg<% end -%>
-    tidy.clean_output = Off
+<% if @tidy_default_config -%>tidy.default_config = /usr/local/lib/php/default.tcfg<% end -%>
+tidy.clean_output = Off
 [soap]
-    soap.wsdl_cache_enabled=1
-    soap.wsdl_cache_dir="/tmp"
-    soap.wsdl_cache_ttl=86400
-    soap.wsdl_cache_limit = 5
+soap.wsdl_cache_enabled=1
+soap.wsdl_cache_dir="/tmp"
+soap.wsdl_cache_ttl=86400
+soap.wsdl_cache_limit = 5
 [sysvshm]
-    <% if @sysvshm_init_mem -%>sysvshm.init_mem = 10000<% end -%>
+<% if @sysvshm_init_mem -%>sysvshm.init_mem = 10000<% end -%>
 [ldap]
-    ldap.max_links = -1
+ldap.max_links = -1
 [mcrypt]
-    <% if @mcrypt_algorithms_dir -%>mcrypt.algorithms_dir=<% end -%>
-    <% if @mcrypt_modes_dir -%>mcrypt.modes_dir=<% end -%>
+<% if @mcrypt_algorithms_dir -%>mcrypt.algorithms_dir=<% end -%>
+<% if @mcrypt_modes_dir -%>mcrypt.modes_dir=<% end -%>
 [dba]
-    <% if @dba_default_handler -%>dba.default_handler=<% end -%>
+<% if @dba_default_handler -%>dba.default_handler=<% end -%>
 [curl]
-    <% if @curl_cainfo -%>curl.cainfo =<% end -%>
+<% if @curl_cainfo -%>curl.cainfo =<% end -%>
