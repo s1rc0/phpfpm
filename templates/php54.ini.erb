@@ -90,165 +90,189 @@ default_socket_timeout = 60
 
 [CLI Server]
 cli_server.color = On
+
 [Date]
 date.timezone = Europe/Kiev
 <% if @date_default_latitude -%>date.default_latitude = 31.7667<% end -%>
 <% if @date_default_longitude -%>date.default_longitude = 35.2333<% end -%>
 <% if @date_sunrise_zenith -%>date.sunrise_zenith = 90.583333<% end -%>
 <% if @date_sunset_zenith -%>date.sunset_zenith = 90.583333<% end -%>
+
 [filter]
 <% if @filter_default -%>filter.default = unsafe_raw<% end -%>
 <% if @filter_default_flags -%>filter.default_flags =<% end -%>
+
 [iconv]
 <% if @iconv_iconv_input_encoding -%>iconv.input_encoding = ISO-8859-1<% end -%>
 <% if @iconv_iconv_internal_encoding -%>iconv.internal_encoding = ISO-8859-1<% end -%>
 <% if @iconv_output_encoding -%>iconv.output_encoding = ISO-8859-1<% end -%>
+
 [intl]
 <% if @intl_default_locale -%>intl.default_locale =<% end -%>
 <% if @intl_error_level -%>intl.error_level = E_WARNING<% end -%>
+
 [sqlite]
 <% if @sqlite_assoc_case -%>sqlite.assoc_case = 0<% end -%>
+
 [sqlite3]
-    <% if @sqlite3_extension_dir -%>sqlite3.extension_dir =<% end -%>
+<% if @sqlite3_extension_dir -%>sqlite3.extension_dir =<% end -%>
+
 [Pcre]
-    <% if @pcre_backtrack_limit -%>pcre.backtrack_limit=100000<% end -%>
-    <% if @pcre_recursion_limit -%>pcre.recursion_limit=100000<% end -%>
+<% if @pcre_backtrack_limit -%>pcre.backtrack_limit=100000<% end -%>
+<% if @pcre_recursion_limit -%>pcre.recursion_limit=100000<% end -%>
+
 [Pdo]
-    <% if @pdo_odbc_connection_pooling -%>pdo_odbc.connection_pooling=strict<% end -%>
-    <% if @pdo_odbc_db2_instance_name -%>pdo_odbc.db2_instance_name<% end -%>
+<% if @pdo_odbc_connection_pooling -%>pdo_odbc.connection_pooling=strict<% end -%>
+<% if @pdo_odbc_db2_instance_name -%>pdo_odbc.db2_instance_name<% end -%>
+
 [Pdo_mysql]
-    pdo_mysql.cache_size = 2000
-    pdo_mysql.default_socket=
+pdo_mysql.cache_size = 2000
+pdo_mysql.default_socket=
+
 [Phar]
-    <% if @phar_readonly -%>phar.readonly = On<% end -%>
-    <% if @phar_require_hash -%>phar.require_hash = On<% end -%>
-    <% if @phar_cache_list -%>phar.cache_list =<% end -%>
+<% if @phar_readonly -%>phar.readonly = On<% end -%>
+<% if @phar_require_hash -%>phar.require_hash = On<% end -%>
+<% if @phar_cache_list -%>phar.cache_list =<% end -%>
+
 [mail function]
-    SMTP = localhost
-    smtp_port = 25
-    <% if @sendmail_from -%>sendmail_from = me@example.com<% end -%>
-    sendmail_path = /usr/sbin/sendmail -t -i
-    <% if @mail_force_extra_parameters -%>mail.force_extra_parameters =<% end -%>
-    mail.add_x_header = On
-    <% if @mail_log -%>mail.log = syslog<% end -%>
+SMTP = localhost
+smtp_port = 25
+<% if @sendmail_from -%>sendmail_from = me@example.com<% end -%>
+sendmail_path = /usr/sbin/sendmail -t -i
+<% if @mail_force_extra_parameters -%>mail.force_extra_parameters =<% end -%>
+mail.add_x_header = On
+<% if @mail_log -%>mail.log = syslog<% end -%>
+
 [SQL]
-    sql.safe_mode = Off
+sql.safe_mode = Off
+
 [ODBC]
-    <% if @odbc_default_db -%>odbc.default_db    =  Not yet implemented<% end -%>
-    <% if @odbc_default_user -%>odbc.default_user  =  Not yet implemented<% end -%>
-    <% if @odbc_default_pw -%>odbc.default_pw    =  Not yet implemented<% end -%>
-    <% if @odbc_default_cursortype -%>odbc.default_cursortype<% end -%>
-    odbc.allow_persistent = On
-    odbc.check_persistent = On
-    odbc.max_persistent = -1
-    odbc.max_links = -1
-    odbc.defaultlrl = 4096
-    odbc.defaultbinmode = 1
-    <% if @birdstep_max_links -%>birdstep.max_links = -1<% end -%>
+<% if @odbc_default_db -%>odbc.default_db    =  Not yet implemented<% end -%>
+<% if @odbc_default_user -%>odbc.default_user  =  Not yet implemented<% end -%>
+<% if @odbc_default_pw -%>odbc.default_pw    =  Not yet implemented<% end -%>
+<% if @odbc_default_cursortype -%>odbc.default_cursortype<% end -%>
+odbc.allow_persistent = On
+odbc.check_persistent = On
+odbc.max_persistent = -1
+odbc.max_links = -1
+odbc.defaultlrl = 4096
+odbc.defaultbinmode = 1
+<% if @birdstep_max_links -%>birdstep.max_links = -1<% end -%>
+
 [Interbase]
-    ibase.allow_persistent = 1
-    ibase.max_persistent = -1
-    ibase.max_links = -1
-    <% if @ibase_default_db -%>ibase.default_db =<% end -%>
-    <% if @ibase_default_user -%>ibase.default_user =<% end -%>
-    <% if @ibase_default_password -%>ibase.default_password =<% end -%>
-    <% if @ibase_default_charset -%>ibase.default_charset =<% end -%>
-    ibase.timestampformat = "%Y-%m-%d %H:%M:%S"
-    ibase.dateformat = "%Y-%m-%d"
-    ibase.timeformat = "%H:%M:%S"
+ibase.allow_persistent = 1
+ibase.max_persistent = -1
+ibase.max_links = -1
+<% if @ibase_default_db -%>ibase.default_db =<% end -%>
+<% if @ibase_default_user -%>ibase.default_user =<% end -%>
+<% if @ibase_default_password -%>ibase.default_password =<% end -%>
+<% if @ibase_default_charset -%>ibase.default_charset =<% end -%>
+ibase.timestampformat = "%Y-%m-%d %H:%M:%S"
+ibase.dateformat = "%Y-%m-%d"
+ibase.timeformat = "%H:%M:%S"
+
 [MySQL]
-    mysql.allow_local_infile = On
-    mysql.allow_persistent = On
-    mysql.cache_size = 2000
-    mysql.max_persistent = -1
-    mysql.max_links = -1
-    mysql.default_port =
-    mysql.default_socket =
-    mysql.default_host =
-    mysql.default_user =
-    mysql.default_password =
-    mysql.connect_timeout = 60
-    mysql.trace_mode = Off
+mysql.allow_local_infile = On
+mysql.allow_persistent = On
+mysql.cache_size = 2000
+mysql.max_persistent = -1
+mysql.max_links = -1
+mysql.default_port =
+mysql.default_socket =
+mysql.default_host =
+mysql.default_user =
+mysql.default_password =
+mysql.connect_timeout = 60
+mysql.trace_mode = Off
+
 [MySQLi]
-    mysqli.max_persistent = -1
-    <% if @mysqli_allow_local_infile -%>mysqli.allow_local_infile = On<% end -%>
-    mysqli.allow_persistent = On
-    mysqli.max_links = -1
-    mysqli.cache_size = 2000
-    mysqli.default_port = 3306
-    mysqli.default_socket =
-    mysqli.default_host =
-    mysqli.default_user =
-    mysqli.default_pw =
-    mysqli.reconnect = Off
+mysqli.max_persistent = -1
+<% if @mysqli_allow_local_infile -%>mysqli.allow_local_infile = On<% end -%>
+mysqli.allow_persistent = On
+mysqli.max_links = -1
+mysqli.cache_size = 2000
+mysqli.default_port = 3306
+mysqli.default_socket =
+mysqli.default_host =
+mysqli.default_user =
+mysqli.default_pw =
+mysqli.reconnect = Off
+
 [mysqlnd]
-    mysqlnd.collect_statistics = On
-    mysqlnd.collect_memory_statistics = Off
-    <% if @mysqlnd_net_cmd_buffer_size -%>mysqlnd.net_cmd_buffer_size = 2048<% end -%>
-    <% if @mysqlnd_net_read_buffer_size -%>mysqlnd.net_read_buffer_size = 32768<% end -%>
+mysqlnd.collect_statistics = On
+mysqlnd.collect_memory_statistics = Off
+<% if @mysqlnd_net_cmd_buffer_size -%>mysqlnd.net_cmd_buffer_size = 2048<% end -%>
+<% if @mysqlnd_net_read_buffer_size -%>mysqlnd.net_read_buffer_size = 32768<% end -%>
+
 [OCI8]
-    <% if @oci8_privileged_connect -%>oci8.privileged_connect = Off<% end -%>
-    <% if @oci8_max_persistent -%>oci8.max_persistent = -1<% end -%>
-    <% if @oci8_persistent_timeout -%>oci8.persistent_timeout = -1<% end -%>
-    <% if @oci8_ping_interval -%>oci8.ping_interval = 60<% end -%>
-    <% if @oci8_connection_class -%>oci8.connection_class =<% end -%>
-    <% if @oci8_oci8_events -%>oci8.events = Off<% end -%>
-    <% if @oci8_statement_cache_size -%>oci8.statement_cache_size = 20<% end -%>
-    <% if @oci8_default_prefetch -%>oci8.default_prefetch = 100<% end -%>
-    <% if @oci8_old_oci_close_semantics -%>oci8.old_oci_close_semantics = Off<% end -%>
+<% if @oci8_privileged_connect -%>oci8.privileged_connect = Off<% end -%>
+<% if @oci8_max_persistent -%>oci8.max_persistent = -1<% end -%>
+<% if @oci8_persistent_timeout -%>oci8.persistent_timeout = -1<% end -%>
+<% if @oci8_ping_interval -%>oci8.ping_interval = 60<% end -%>
+<% if @oci8_connection_class -%>oci8.connection_class =<% end -%>
+<% if @oci8_oci8_events -%>oci8.events = Off<% end -%>
+<% if @oci8_statement_cache_size -%>oci8.statement_cache_size = 20<% end -%>
+<% if @oci8_default_prefetch -%>oci8.default_prefetch = 100<% end -%>
+<% if @oci8_old_oci_close_semantics -%>oci8.old_oci_close_semantics = Off<% end -%>
+
 [PostgreSQL]
-    pgsql.allow_persistent = On
-    pgsql.auto_reset_persistent = Off
-    pgsql.max_persistent = -1
-    pgsql.max_links = -1
-    pgsql.ignore_notice = 0
-    pgsql.log_notice = 0
+pgsql.allow_persistent = On
+pgsql.auto_reset_persistent = Off
+pgsql.max_persistent = -1
+pgsql.max_links = -1
+pgsql.ignore_notice = 0
+pgsql.log_notice = 0
+
 [Sybase-CT]
-    sybct.allow_persistent = On
-    sybct.max_persistent = -1
-    sybct.max_links = -1
-    sybct.min_server_severity = 10
-    sybct.min_client_severity = 10
-    <% if @sybct_timeout -%>sybct.timeout=<% end -%>
-    <% if @sybct_packet_size -%>sybct.packet_size<% end -%>
-    <% if @sybct_login_timeout -%>sybct.login_timeout=<% end -%>
-    <% if @sybct_hostname -%>sybct.hostname=<% end -%>
-    <% if @sybct_deadlock_retry_count -%>sybct.deadlock_retry_count=<% end -%>
+sybct.allow_persistent = On
+sybct.max_persistent = -1
+sybct.max_links = -1
+sybct.min_server_severity = 10
+sybct.min_client_severity = 10
+<% if @sybct_timeout -%>sybct.timeout=<% end -%>
+<% if @sybct_packet_size -%>sybct.packet_size<% end -%>
+<% if @sybct_login_timeout -%>sybct.login_timeout=<% end -%>
+<% if @sybct_hostname -%>sybct.hostname=<% end -%>
+<% if @sybct_deadlock_retry_count -%>sybct.deadlock_retry_count=<% end -%>
+
 [bcmath]
-    bcmath.scale = 0
+bcmath.scale = 0
+
 [browscap]
-    <% if @browscap -%>browscap = extra/browscap.ini<% end -%>
+<% if @browscap -%>browscap = extra/browscap.ini<% end -%>
+
 [Session]
-    session.save_handler = files
-    <% if @session_save_path -%>session.save_path = "/tmp"<% end -%>
-    session.use_cookies = 1
-    <% if @session_cookie_secure -%>session.cookie_secure =<% end -%>
-    session.use_only_cookies = 1
-    session.name = PHPSESSID
-    session.auto_start = 0
-    session.cookie_lifetime = 0
-    session.cookie_path = /
-    session.cookie_domain =
-    session.cookie_httponly =
-    session.serialize_handler = php
-    session.gc_probability = 1
-    session.gc_divisor = 1000
-    session.gc_maxlifetime = 1440
-    session.referer_check =
-    <% if @session_entropy_length -%>session.entropy_length = 32<% end -%>
-    <% if @session_entropy_file -%>session.entropy_file = /dev/urandom<% end -%>
-    session.cache_limiter = nocache
-    session.cache_expire = 180
-    session.use_trans_sid = 0
-    session.hash_function = 0
-    session.hash_bits_per_character = 5
-    url_rewriter.tags = "a=href,area=href,frame=src,input=src,form=fakeentry"
-    <% if @session_upload_progress_enabled -%>session.upload_progress.enabled = On<% end -%>
-    <% if @session_upload_progress_cleanup -%>session.upload_progress.cleanup = On<% end -%>
-    <% if @session_upload_progress_prefix -%>session.upload_progress.prefix = "upload_progress_"<% end -%>
-    <% if @session_upload_progress_name -%>session.upload_progress.name = "PHP_SESSION_UPLOAD_PROGRESS"<% end -%>
-    <% if @session_upload_progress_freq -%>session.upload_progress.freq =  "1%"<% end -%>
-    <% if @session_upload_progress_min_freq -%>session.upload_progress.min_freq = "1"<% end -%>
+session.save_handler = files
+<% if @session_save_path -%>session.save_path = "/tmp"<% end -%>
+session.use_cookies = 1
+<% if @session_cookie_secure -%>session.cookie_secure =<% end -%>
+session.use_only_cookies = 1
+session.name = PHPSESSID
+session.auto_start = 0
+session.cookie_lifetime = 0
+session.cookie_path = /
+session.cookie_domain =
+session.cookie_httponly =
+session.serialize_handler = php
+session.gc_probability = 1
+session.gc_divisor = 1000
+session.gc_maxlifetime = 1440
+session.referer_check =
+<% if @session_entropy_length -%>session.entropy_length = 32<% end -%>
+<% if @session_entropy_file -%>session.entropy_file = /dev/urandom<% end -%>
+session.cache_limiter = nocache
+session.cache_expire = 180
+session.use_trans_sid = 0
+session.hash_function = 0
+session.hash_bits_per_character = 5
+url_rewriter.tags = "a=href,area=href,frame=src,input=src,form=fakeentry"
+<% if @session_upload_progress_enabled -%>session.upload_progress.enabled = On<% end -%>
+<% if @session_upload_progress_cleanup -%>session.upload_progress.cleanup = On<% end -%>
+<% if @session_upload_progress_prefix -%>session.upload_progress.prefix = "upload_progress_"<% end -%>
+<% if @session_upload_progress_name -%>session.upload_progress.name = "PHP_SESSION_UPLOAD_PROGRESS"<% end -%>
+<% if @session_upload_progress_freq -%>session.upload_progress.freq =  "1%"<% end -%>
+<% if @session_upload_progress_min_freq -%>session.upload_progress.min_freq = "1"<% end -%>
+
 [MSSQL]
 mssql.allow_persistent = On
 mssql.max_persistent = -1
@@ -265,12 +289,14 @@ mssql.compatability_mode = Off
 mssql.secure_connection = Off
 <% if @mssql_max_procs -%>mssql.max_procs = -1<% end -%>
 <% if @mssql_charset -%>mssql.charset = "ISO-8859-1"<% end -%>
+
 [Assertion]
 <% if @assert_active -%>assert.active = On<% end -%>
 <% if @assert_warning -%>assert.warning = On<% end -%>
 <% if @assert_bail -%>assert.bail = Off<% end -%>
 <% if @assert_callback -%>assert.callback = 0<% end -%>
 <% if @assert_quiet_eval -%>assert.quiet_eval = 0<% end -%>
+
 [mbstring]
 <% if @mbstring_language -%>mbstring.language = Japanese<% end -%>
 <% if @mbstring_internal_encoding -%>mbstring.internal_encoding = EUC-JP<% end -%>
@@ -282,8 +308,10 @@ mssql.secure_connection = Off
 <% if @mbstring_func_overload -%>mbstring.func_overload = 0<% end -%>
 <% if @mbstring_strict_detection -%>mbstring.strict_detection = Off<% end -%>
 <% if @mbstring_http_output_conv_mimetype -%>mbstring.http_output_conv_mimetype=<% end -%>
+
 [gd]
 <% if @gd_jpeg_ignore_warning -%>gd.jpeg_ignore_warning = 0<% end -%>
+
 [exif]
 <% if @exif_encode_unicode -%>exif.encode_unicode = ISO-8859-15<% end -%>
 <% if @exif_decode_unicode_motorola -%>exif.decode_unicode_motorola = UCS-2BE<% end -%>
@@ -291,22 +319,29 @@ mssql.secure_connection = Off
 <% if @exif_encode_jis -%>exif.encode_jis =<% end -%>
 <% if @exif_decode_jis_motorola -%>exif.decode_jis_motorola = JIS<% end -%>
 <% if @exif_decode_jis_intel -%>exif.decode_jis_intel    = JIS<% end -%>
+
 [Tidy]
 <% if @tidy_default_config -%>tidy.default_config = /usr/local/lib/php/default.tcfg<% end -%>
 tidy.clean_output = Off
+
 [soap]
 soap.wsdl_cache_enabled=1
 soap.wsdl_cache_dir="/tmp"
 soap.wsdl_cache_ttl=86400
 soap.wsdl_cache_limit = 5
+
 [sysvshm]
 <% if @sysvshm_init_mem -%>sysvshm.init_mem = 10000<% end -%>
+
 [ldap]
 ldap.max_links = -1
+
 [mcrypt]
 <% if @mcrypt_algorithms_dir -%>mcrypt.algorithms_dir=<% end -%>
 <% if @mcrypt_modes_dir -%>mcrypt.modes_dir=<% end -%>
+
 [dba]
 <% if @dba_default_handler -%>dba.default_handler=<% end -%>
+
 [curl]
 <% if @curl_cainfo -%>curl.cainfo =<% end -%>
