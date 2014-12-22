@@ -8,7 +8,6 @@ class phpfpm (
 
   phpfpm::conf::php_fpm { "www":
     pm_max_children => 62,
-    listen => '127.0.0.1:6666',
   }
 /*
   file { "/etc/php-fpm.d":
