@@ -33,7 +33,7 @@ class phpfpm::install (
       install_options      => [ "--enablerepo=remi-php$ver" ],
       require              => Yumrepo[ "epel","remi","remi-php55","remi-php56" ],
     }
-}
+  }
 
   each($default_packages) |$default_package| {
     package { $default_package:
@@ -43,13 +43,5 @@ class phpfpm::install (
       install_options      => [ "--enablerepo=remi-php$ver" ],
       require              => Yumrepo[ "epel","remi","remi-php55","remi-php56" ],
     }
-  }
-
-  file {"/etc/php.ini":
-    content     => template('phpfpm/php54.ini.erb'),
-    owner       => 'root',
-    group       => 'root',
-    mode        => '0644',
-    require     => Class['phpfpm'],
   }
 }

@@ -147,7 +147,9 @@ class phpfpm (
   $curl_cainfo                              = undef,
 ){
   include phpfpm::install
+  include phpfpm::conf::php_ini
   require phpfpm::service
+
 
 /*
   file { "/etc/php-fpm.d":
