@@ -148,14 +148,7 @@ class phpfpm (
 ){
   include phpfpm::install
   require phpfpm::service
-  file {"/etc/php.ini":
-    content     => template('phpfpm/php54.ini.erb'),
-    owner       => 'root',
-    group       => 'root',
-    mode        => '0644',
-  #require     => Class['phpfpm::install'],
-    notify      => Class['phpfpm::service'],
-  }
+
 /*
   file { "/etc/php-fpm.d":
     ensure  => directory,
