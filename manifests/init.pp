@@ -14,9 +14,9 @@ class phpfpm (
   $date_timezone                  = "Europe/Kiev",
 
 ){
-  class { phpfpm:
-    php_version => '55',
-    php_modules => ['mbstring','mcrypt','soap']
+  class { phpfpm::install:
+    #php_version => '55',
+    #php_modules => ['mbstring','mcrypt','soap']
   }
   class { phpfpm::service:}
 #  include phpfpm::install
