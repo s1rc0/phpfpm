@@ -31,7 +31,7 @@ max_execution_time = 30
 max_input_time = 60
 <% if @max_input_nesting_level -%>max_input_nesting_level = 64<% end -%>
 <% if @max_input_vars -%>max_input_vars = 1000<% end -%>
-memory_limit = <%= @memory_limit %>
+memory_limit = <%= @phpfpm::memory_limit %>
 
 error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT
 display_errors = Off
