@@ -18,11 +18,6 @@ class phpfpm (
   require phpfpm::service
   require phpfpm::conf::php_ini
 
-  if ! defined (Class['::phpfpm::conf::php_fpm']) {
-    notify{"IN IF STATEMENT!!": }
-    phpfpm::conf::php_fpm {"www": }
-  }
-
 /*
   file { "/etc/php-fpm.d":
     ensure  => directory,
