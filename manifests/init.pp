@@ -152,7 +152,7 @@ class phpfpm (
     owner       => 'root',
     group       => 'root',
     mode        => '0644',
-    require     => Class['phpfpm::install'],
+    #require     => Class['phpfpm::install'],
     notify      => Class['phpfpm::service'],
   }
   require phpfpm::service
