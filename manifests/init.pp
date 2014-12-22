@@ -18,6 +18,7 @@ class phpfpm (
   include phpfpm::service
 
   include phpfpm::conf::php_ini
+  ::phpfpm::conf::php_fpm { "www":}
   /**
   if ! defined(Class['phpfpm::conf::php_fpm']){
     phpfpm::conf::php_fpm { "www":}
