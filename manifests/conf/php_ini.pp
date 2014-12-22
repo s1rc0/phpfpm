@@ -1,11 +1,11 @@
 class phpfpm::conf::php_ini (
-  $max_execution_time             = $phpfpm::max_execution_time,
-  $max_input_time                 = $phpfpm::max_input_time,
-  $memory_limit                   = $phpfpm::memory_limit,
-  $file_uploads                   = $phpfpm::file_uploads,
-  $upload_max_filesize            = $phpfpm::upload_max_filesize,
-  $max_file_uploads               = $phpfpm::max_file_uploads,
-  $date_timezone                  = $phpfpm::date_timezone,
+  $max_execution_time             = 30,
+  $max_input_time                 = 60,
+  $memory_limit                   = '128M',
+  $file_uploads                   = 'On',
+  $upload_max_filesize            = '2M',
+  $max_file_uploads               = 20,
+  $date_timezone                  = "Europe/Kiev",
 
   $output_handler                           = undef,
   $zlib_output_compression_level            = undef,
