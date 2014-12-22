@@ -142,7 +142,6 @@ class phpfpm::conf::php_ini (
   $dba_default_handler                      = undef,
   $curl_cainfo                              = undef,
 ) {
-
   file {"/etc/php.ini":
     content     => template('phpfpm/php54.ini.erb'),
     owner       => 'root',
@@ -151,5 +150,4 @@ class phpfpm::conf::php_ini (
     require     => Class['phpfpm::install'],
     notify      => Class['phpfpm::service'],
   }
-
 }

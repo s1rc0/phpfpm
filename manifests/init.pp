@@ -14,13 +14,19 @@ class phpfpm (
   $date_timezone                  = "Europe/Kiev",
 
 ){
-  include phpfpm::install
-  include phpfpm::service
+  class { phpfpm:
+    php_version => '55',
+    php_modules => ['mbstring','mcrypt','soap']
+  }
+  class { phpfpm::service:}
+#  include phpfpm::install
+#  include phpfpm::service
 
   file { "/etc/php-fpm.d":
     ensure  => directory,
     force   => true,
     purge   => true,
     recurse => true,
+    notify  => Class['phpfpm::service'],
   }
 }

@@ -1,6 +1,6 @@
 class phpfpm::service {
   service { 'php-fpm':
-    ensure    => running,
+    ensure     => running,
     hasstatus  => true,
     hasrestart => true,
     enable     => true,
