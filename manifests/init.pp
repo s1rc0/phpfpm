@@ -5,6 +5,7 @@ class phpfpm (
 ){
   include phpfpm::install
   if !defined("phpfpm::conf::php_ini") {
+    notify (Class['phpfpm::service'])
     include phpfpm::conf::php_ini
   }
   include phpfpm::service
