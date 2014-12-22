@@ -4,7 +4,9 @@ class phpfpm (
   $php_modules          = [],
 ){
   include phpfpm::install
-  include phpfpm::conf::php_ini
+  #include phpfpm::conf::php_ini
+  class {'include phpfpm::conf::php_ini':}
+
   include phpfpm::service
 /*
   file { "/etc/php-fpm.d":
