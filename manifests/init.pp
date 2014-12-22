@@ -6,7 +6,7 @@ class phpfpm (
   require phpfpm::install
   require phpfpm::service
 
-  if !defined(Class['phpfpm::conf::php_ini']) {
+  if defined(Class['phpfpm::conf::php_ini']) {
     class { 'phpfpm::conf::php_ini':
       max_execution_time                       => 30,
       max_input_time                           => 60,
