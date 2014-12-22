@@ -17,9 +17,9 @@ class phpfpm (
   require phpfpm::install
   require phpfpm::service
 
-  if $phpfpm::conf::php_ini::memory_limit or
-  $phpfpm::conf::php_ini::memory_limit or
-  $phpfpm::conf::php_ini::highlight_keyword
+  if !$phpfpm::conf::php_ini::memory_limit or
+  !$phpfpm::conf::php_ini::memory_limit or
+  !$phpfpm::conf::php_ini::highlight_keyword
   {
     include phpfpm::conf::php_ini
   }
