@@ -13,7 +13,9 @@ class phpfpm (
   $php_ini_date_timezone                            = "Europe/Kiev",
 ){
   include phpfpm::install
-  include phpfpm::conf::php_ini
+  if defined("phpfpm::conf::php_ini:") {
+    include phpfpm::conf::php_ini
+  }
   include phpfpm::service
 
 
