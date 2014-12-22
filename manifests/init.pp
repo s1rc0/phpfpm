@@ -16,10 +16,9 @@ class phpfpm (
 ){
   include phpfpm::install
   include phpfpm::service
+  include phpfpm::conf::php_ini
 
-  if ! defined (Class[::phpfpm::conf::php_fpm]) {
-  # Set up default php-fpm pool
-  ::phpfpm::conf::php_fpm { "www":
+  phpfpm::conf::php_fpm {"www":
     listen                             => '127.0.0.1:9000',
     listen_allowed_clients             => '127.0.0.1',
     user                               => 'apache',
@@ -55,7 +54,7 @@ class phpfpm (
     php_flag_display_errors            => undef,
     php_admin_value_memory_limit       => undef,
   }
-  }
+
 /*
   file { "/etc/php-fpm.d":
     ensure  => directory,
