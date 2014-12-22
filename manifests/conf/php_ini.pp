@@ -1,4 +1,4 @@
-class phpfpm::conf::php_ini (
+define phpfpm::conf::php_ini (
   $max_execution_time                       = 30,
   $max_input_time                           = 60,
   $memory_limit                             = '128M',
