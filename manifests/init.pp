@@ -146,13 +146,13 @@ class phpfpm (
   $dba_default_handler                      = undef,
   $curl_cainfo                              = undef,
 ){
-  require phpfpm::install
+  include phpfpm::install
   file {"/etc/php.ini":
     content     => template('phpfpm/php54.ini.erb'),
     owner       => 'root',
     group       => 'root',
     mode        => '0644',
-    #require     => Class['phpfpm::install'],
+    require     => Class['phpfpm::install'],
     notify      => Class['phpfpm::service'],
   }
   require phpfpm::service
