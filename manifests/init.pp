@@ -14,7 +14,7 @@ class phpfpm (
 ){
   include phpfpm::install
   include phpfpm::conf::php_ini
-  require phpfpm::service
+  include phpfpm::service
 
 
 /*
