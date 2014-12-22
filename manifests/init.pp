@@ -5,7 +5,7 @@ class phpfpm (
 ){
   include phpfpm::install
   #include phpfpm::conf::php_ini
-  class {'include phpfpm::conf::php_ini':}
+  class {'phpfpm::conf::php_ini':}
 
   include phpfpm::service
 /*
