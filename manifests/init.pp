@@ -16,7 +16,7 @@ class phpfpm (
 ){
   include phpfpm::install
   include phpfpm::service
-  include phpfpm::conf
+  include phpfpm::conf::php_fpm
 /*
   file { "/etc/php-fpm.d":
     ensure  => directory,
