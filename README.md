@@ -73,6 +73,14 @@ phpfpm::conf::php_fpm { "www":
   php_admin_value_memory_limit       => undef,
 }
 ```
+### Setup additional php-fpm pool
+```puppet
+phpfpm::conf::php_fpm { "ttt":
+  pm_max_children => 55,
+  listen => '127.0.0.1:5555',
+}
+```
+
 ### Configure php.ini
 
 ```puppet
