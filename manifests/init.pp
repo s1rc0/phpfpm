@@ -14,11 +14,11 @@ class phpfpm (
   $date_timezone                  = "Europe/Kiev",
 
 ){
-  include phpfpm::install
-  include phpfpm::service
-  include phpfpm::conf::php_ini
+  require phpfpm::install
+  require phpfpm::service
+  require phpfpm::conf::php_ini
 
-  if !defined (Class[phpfpm::conf::php_fpm]) {
+  if ! (Class[phpfpm::conf::php_fpm]) {
     notify{"IN IF STATEMENT!!": }
     phpfpm::conf::php_fpm {"www": }
   }

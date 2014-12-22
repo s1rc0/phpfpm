@@ -1,3 +1,4 @@
+class phpfpm::conf::php_fpm {
 define phpfpm::conf::php_fpm (
   $listen                             = '127.0.0.1:9000',
   $listen_allowed_clients             = '127.0.0.1',
@@ -42,4 +43,5 @@ define phpfpm::conf::php_fpm (
     require     => Class['phpfpm::install'],
     notify      => Class['phpfpm::service'],
   }
+}
 }
