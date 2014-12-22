@@ -16,8 +16,6 @@ class phpfpm (
 ){
   require phpfpm::install
   require phpfpm::service
-  require phpfpm::conf::php_ini
-
 /*
   file { "/etc/php-fpm.d":
     ensure  => directory,
