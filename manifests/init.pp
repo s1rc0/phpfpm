@@ -7,7 +7,7 @@ class phpfpm (
   require phpfpm::service
 
   if !$phpfpm::conf::php_ini::memory_limit or
-  !$phpfpm::conf::php_ini::memory_limit or
+  !$phpfpm::conf::php_ini::max_execution_time or
   !$phpfpm::conf::php_ini::highlight_keyword
   {
     include phpfpm::conf::php_ini
