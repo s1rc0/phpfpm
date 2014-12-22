@@ -6,7 +6,7 @@ class phpfpm (
   require phpfpm::install
   require phpfpm::service
 
-  if $phpfpm::conf::php_ini::memory_limit == undef
+  if phpfpm::conf::php_ini::memory_limit == undef
   {
 
     include phpfpm::conf::php_ini
