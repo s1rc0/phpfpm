@@ -21,7 +21,7 @@ class phpfpm (
     phpfpm::conf::php_fpm { "www":}
   }
   if ! defined(Class['phpfpm::conf::php_ini']){
-    phpfpm::conf::php_ini{}
+    include phpfpm::conf::php_ini
   }
 /*
   file { "/etc/php-fpm.d":
