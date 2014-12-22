@@ -34,7 +34,7 @@ class { phpfpm:
   php_modules => ['mbstring','mcrypt','soap','ssh2']
 }
 ```
-### Configure php-fpm pools
+### Configure php-fpm pool
 ```puppet
 phpfpm::conf::php_fpm { "www":
   listen                             => '127.0.0.1:9000',
