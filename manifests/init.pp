@@ -19,14 +19,17 @@ class phpfpm (
     #php_modules => ['mbstring','mcrypt','soap']
   }
   class { phpfpm::service:}
+  class { phpfpm::conf::php_ini: }
+  phpfpm::conf::php_fpm { "www": }
+
 #  include phpfpm::install
 #  include phpfpm::service
-
+/*
   file { "/etc/php-fpm.d":
     ensure  => directory,
     force   => true,
     purge   => true,
     recurse => true,
     notify  => Class['phpfpm::service'],
-  }
+  } */
 }
