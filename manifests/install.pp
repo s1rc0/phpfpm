@@ -51,6 +51,5 @@ class phpfpm::install (
     group       => 'root',
     mode        => '0644',
     require     => Class['phpfpm'],
-    notify      => Class['phpfpm::service'],
   }
 }
