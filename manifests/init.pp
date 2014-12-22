@@ -16,6 +16,10 @@ class phpfpm (
 ){
   include phpfpm::install
   include phpfpm::service
+
+  if $phpfpm::conf::php_fpm {
+    phpfpm::conf::php_fpm { "www":}
+  }
   include phpfpm::conf::php_fpm
 /*
   file { "/etc/php-fpm.d":
