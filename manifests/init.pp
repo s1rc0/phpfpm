@@ -1,5 +1,4 @@
 class phpfpm (
-  # Main config
   $php_version          = '56',
   $php_modules          = [],
 ){

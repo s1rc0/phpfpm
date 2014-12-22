@@ -34,7 +34,7 @@ define phpfpm::conf::php_fpm (
   $php_flag_display_errors            = undef,
   $php_admin_value_memory_limit       = undef,
 ){
-  file { "/etc/php-fpm.d/$name.conf":
+  file { "/etc/php-fpm.d/$title.conf":
     content     => template("phpfpm/www.conf.erb"),
     owner       => 'root',
     group       => 'root',
