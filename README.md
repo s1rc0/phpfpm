@@ -35,7 +35,6 @@ class { phpfpm:
 }
 ```
 ### Configure php-fpm pools
->! This is a spoiler
 ```puppet
 phpfpm::conf::php_fpm { "www":
   listen                             => '127.0.0.1:9000',
