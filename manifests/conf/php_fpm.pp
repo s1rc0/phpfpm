@@ -36,6 +36,9 @@ define phpfpm::conf::php_fpm (
 ){
   file { "/etc/php-fpm.d/$name.conf":
     content     => template("phpfpm/www.conf.erb"),
+    ensure      => file,
+    force       => true,
+    purge       => true,
     owner       => 'root',
     group       => 'root',
     mode        => '0644',
