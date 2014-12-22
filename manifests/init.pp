@@ -16,4 +16,11 @@ class phpfpm (
 ){
   include phpfpm::install
   include phpfpm::service
+
+  file { "/etc/php-fpm.d":
+    ensure  => directory,
+    force   => true,
+    purge   => true,
+    recurse => true,
+  }
 }
