@@ -14,16 +14,9 @@ class phpfpm (
   $date_timezone                  = "Europe/Kiev",
 
 ){
-  class { phpfpm::install:
-    #php_version => '55',
-    #php_modules => ['mbstring','mcrypt','soap']
-  }
-  class { phpfpm::service:}
-  class { phpfpm::conf::php_ini: }
-  phpfpm::conf::php_fpm { "www": }
-
-#  include phpfpm::install
-#  include phpfpm::service
+  include phpfpm::install
+  include phpfpm::service
+  include phpfpm::conf
 /*
   file { "/etc/php-fpm.d":
     ensure  => directory,
