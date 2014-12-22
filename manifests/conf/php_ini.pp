@@ -1,7 +1,7 @@
 class phpfpm::conf::php_ini (
   $max_execution_time                       = 30,
   $max_input_time                           = 60,
-  $memory_limit                             = '2048M',
+  $memory_limit                             = '128M',
   $file_uploads                             = 'On',
   $upload_max_filesize                      = '8M',
   $max_file_uploads                         = 20,

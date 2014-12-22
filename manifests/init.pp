@@ -7,7 +7,7 @@ class phpfpm (
   if defined("phpfpm::conf::php_ini:") {
     include phpfpm::conf::php_ini
   } else {
-    $memory_limit = '12M'
+    $memory_limit = '1024M'
     include phpfpm::conf::php_ini
   }
   include phpfpm::service
