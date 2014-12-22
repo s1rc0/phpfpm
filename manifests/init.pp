@@ -17,12 +17,15 @@ class phpfpm (
   include phpfpm::install
   include phpfpm::service
 
+  include phpfpm::conf::php_fpm
+  /**
   if ! defined(Class['phpfpm::conf::php_fpm']){
     phpfpm::conf::php_fpm { "www":}
   }
   if ! defined(Class['phpfpm::conf::php_ini']){
     include phpfpm::conf::php_ini
   }
+  **/
 /*
   file { "/etc/php-fpm.d":
     ensure  => directory,
