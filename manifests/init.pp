@@ -6,7 +6,7 @@ class phpfpm (
   require phpfpm::install
   require phpfpm::service
 
-  if !phpfpm::conf::php_ini::memory_limit
+  if phpfpm::conf::php_ini::memory_limit == undef
   {
     $phpfpm::conf::php_ini::max_execution_time             = '30'
     $phpfpm::conf::php_ini::max_input_time                 = '60'
