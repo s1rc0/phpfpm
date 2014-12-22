@@ -4,7 +4,7 @@ class phpfpm (
   $php_modules          = [],
 ){
   include phpfpm::install
-  if !defined("phpfpm::conf::php_ini:") {
+  if !defined("::phpfpm::conf::php_ini:") {
     include phpfpm::conf::php_ini
   }
   include phpfpm::service
