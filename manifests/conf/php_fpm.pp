@@ -34,7 +34,12 @@ define phpfpm::conf::php_fpm (
   $php_flag_display_errors            = undef,
   $php_admin_value_memory_limit       = undef,
 ){
-  include phpfpm
+  file { '/etc/php-fpm.d':
+    ensure  => directory,
+    force   => true,
+    purge   => true,
+    recurse => true,
+  }
 
   file { "/etc/php-fpm.d/$name.conf":
     content     => template("phpfpm/www.conf.erb"),
