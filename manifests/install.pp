@@ -44,12 +44,13 @@ class phpfpm::install (
       require              => Yumrepo[ "epel","remi","remi-php55","remi-php56" ],
     }
   }
-
+  include phpfpm::params
   file {"/etc/php.ini":
     content     => template('phpfpm/php54.ini.erb'),
     owner       => 'root',
     group       => 'root',
     mode        => '0644',
+    require     => Class['phpfpm'],
     notify      => Class['phpfpm::service'],
   }
 }
